@@ -1,19 +1,19 @@
 import { useEffect, Suspense, lazy } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, useLocation, Routes, Route } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import styled from 'styled-components';
+import { Footer, Header, Loading, ToTopButton } from './components/commons';
 import { setProfile } from './reducers/userReducer';
 import { setAuth, setEmail } from './reducers/authReducer';
-import styled from 'styled-components';
+import {
+  checkFooter,
+  getData,
+  parseToken,
+  setAuthorizationToken,
+  useInitialize,
+} from './util';
 import GlobalStyle from './global/globalstyles';
-import Footer from './components/commons/Footer';
-import Header from './components/commons/Header';
-import ToTopButton from './components/commons/ToTopButton';
-import getData from './util/getData';
-import parseToken from './util/parseToken';
-import checkFooter from './util/checkFooter';
-import useInitialize from './util/useInitialize';
-import setAuthorizationToken from './util/setAuthorizationToken';
-import Loading from './components/commons/Loading';
+
 const Cart = lazy(() => import('./pages/Cart'));
 const Login = lazy(() => import('./pages/Login'));
 const Error = lazy(() => import('./pages/Error'));
