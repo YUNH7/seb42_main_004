@@ -1,10 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { HiPlus as PlusIcon, HiMinus as MunusIcon } from 'react-icons/hi';
-import { setQuantity, deleteCartItem } from '../../reducers/cartReducer';
-import patchData from '../../util/patchData';
-import deleteData from '../../util/deleteData';
 import { TextButton } from '../commons';
+import { setQuantity, deleteCartItem } from '../../reducers/cartReducer';
+import { deleteData, patchData } from '../../util';
 
 function MealBoxCounterDiv({ cartMealboxId, quantity }) {
   let dispatch = useDispatch();

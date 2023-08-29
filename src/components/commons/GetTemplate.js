@@ -1,6 +1,5 @@
-import Loading from './Loading';
-import Error from '../../pages/Error';
-import HelmetTitle from './HelmetTitle';
+import { HelmetTitle, Loading } from '.';
+import { Error } from '../../pages';
 
 function GetTemplate({ isPending, error, res, children, title }) {
   return (

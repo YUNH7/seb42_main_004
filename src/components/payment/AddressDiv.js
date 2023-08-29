@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import Post from './Post';
+import { Post } from '.';
 
 function AddressDiv({ inputValue, onChange, setInputValue, user, same }) {
   const [popup, setPopup] = useState(false);

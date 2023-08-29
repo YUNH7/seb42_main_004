@@ -1,7 +1,7 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { AiOutlineCheckCircle } from '@react-icons/all-files/ai/AiOutlineCheckCircle.esm';
-import { useNavigate } from 'react-router-dom';
-import getData from '../../util/getData';
+import { getData } from '../../util';
 
 function EmailDiv({ name, value, status, request }) {
   const navigate = useNavigate();

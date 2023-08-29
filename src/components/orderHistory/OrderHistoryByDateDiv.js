@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import OrderHistoryByOrderNumber from './OrderHistoryByOrderNumber';
+import { OrderHistoryByOrderNumber } from '.';
 
 function OrderHistoryByDateDiv({ ordersPerDate }) {
   let { date, orders } = ordersPerDate;

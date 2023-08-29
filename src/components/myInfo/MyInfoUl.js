@@ -1,19 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-import ContentDiv from './ContentDiv';
-import GetTemplate from '../commons/GetTemplate';
-import { useGET } from '../../hooks';
-import postData from '../../util/postData';
-import EmailDiv from './EmailDiv';
-import DeliveryDiv from './DeliveryDiv';
-import deleteData from '../../util/deleteData';
 import { useDispatch } from 'react-redux';
-import { setAuth, setEmail } from '../../reducers/authReducer';
-import { initializeCart } from '../../reducers/cartReducer';
-import ProfileImg from './ProfileImg';
-import PasswordDiv from './PasswordDiv';
+import styled from 'styled-components';
+import { ContentDiv, DeliveryDiv, EmailDiv, PasswordDiv, ProfileImg } from '.';
+import { GetTemplate } from '../commons';
+import { useGET } from '../../hooks';
+import { deleteData, postData } from '../../util';
 import { setProfile } from '../../reducers/userReducer';
+import { initializeCart } from '../../reducers/cartReducer';
+import { setAuth, setEmail } from '../../reducers/authReducer';
 
 function MyInfoUl({ pathName }) {
   const [inputValue, setInputValue] = useState({});

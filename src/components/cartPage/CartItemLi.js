@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import MealBoxEditButton from './MealBoxEditButton';
-import MealBoxDeleteButton from './MealBoxDeleteButton';
-import MealBoxCounterDiv from './MealBoxCounterDiv';
-import MealBoxItemsDiv from './MealBoxItemsDiv';
+import {
+  MealBoxCounterDiv,
+  MealBoxDeleteButton,
+  MealBoxEditButton,
+  MealBoxItemsDiv,
+} from '.';
 
 function CartItemLi({ mealbox, value, calcRenderPrice }) {
   let { name, kcal, price, quantity, products } = mealbox;

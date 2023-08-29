@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { addProductInBox } from '../../reducers/customReducer';
 import { TextButton } from '../commons';
+import { addProductInBox } from '../../reducers/customReducer';
 
 function MealBoxEditButton({ cartMealboxId }) {
   let navigate = useNavigate();

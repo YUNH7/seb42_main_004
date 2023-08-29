@@ -1,9 +1,9 @@
+import { useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { HiOutlineMailOpen } from '@react-icons/all-files/hi/HiOutlineMailOpen.esm';
 import { MdOutlineMarkEmailRead } from 'react-icons/md';
-import { useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
-import GetTemplate from '../commons/GetTemplate';
+import { GetTemplate } from '../commons';
 
 function ConfirmEmailDiv({ pathName }) {
   const { email } = useSelector((state) => state.authReducer);

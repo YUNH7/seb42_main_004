@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import LogoWhite from '../../assets/logo_white.png';
 import { useNoFooter } from '../../hooks';
+import LogoWhite from '../../assets/logo_white.png';
 
 let fe = [
   {

@@ -1,9 +1,9 @@
-import { store, persistor } from '../../global/store';
-import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
+import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import { HelmetProvider } from 'react-helmet-async';
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import { store, persistor } from '../../global/store';
 
 function AppProvider({ children }) {
   return (

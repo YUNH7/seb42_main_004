@@ -1,7 +1,6 @@
-import SurveyPage1 from './SurveyPage1';
-import SurveyPage2 from './SurveyPage2';
-import SurveyPage3 from './SurveyPage3';
 import { useSelector } from 'react-redux';
+import { SurveyPage1, SurveyPage2, SurveyPage3 } from '.';
+
 function SurveyArticle({ page }) {
   let { name } = useSelector((state) => state.authReducer.user);
   switch (page) {

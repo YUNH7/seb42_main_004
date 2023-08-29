@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import LogoWhite from '../../assets/logo_white.png';
-import MainButton from '../commons/MainButton';
+import { MainButton } from '../commons';
+import { logo_white as LogoWhite } from '../../assets';
+
 function SurveyHomeArticle() {
   return (
     <Article>

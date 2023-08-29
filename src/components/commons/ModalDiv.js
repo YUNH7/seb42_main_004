@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import MainButton from './MainButton';
-import InputLabelDiv from './InputLabelDiv';
+import { InputLabelDiv, MainButton } from '.';
 import { initializeCustom } from '../../reducers/customReducer';
-import patchData from '../../util/patchData';
-import postData from '../../util/postData';
+import { patchData, postData } from '../../util';
 
 function ModalDiv({ closeModal, mealBox, product, reload }) {
   const [imgInput, setImgInput] = useState();

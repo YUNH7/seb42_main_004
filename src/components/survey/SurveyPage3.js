@@ -1,13 +1,11 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { setPlan, setReset } from '../../reducers/surveyQuestionReducer';
+import { DietInfo, PreAndNextButtons, SurveyBox } from '.';
 import { Option, ExplanationDiv } from './SurveyPage2';
 import { SurveyH3 } from './SurveyPage1';
-import PreAndNextButtons from './PreAndNextButtons';
-import getData from '../../util/getData';
-import SurveyBox from './SurveyBox';
-import DietInfo from './DietInfo';
 import { setSurveyRcmd } from '../../reducers/surveyRcmdReducer';
+import { setPlan, setReset } from '../../reducers/surveyQuestionReducer';
+import getData from '../../util/getData';
 
 let explanation = {
   easy: [

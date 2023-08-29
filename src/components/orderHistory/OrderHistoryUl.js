@@ -1,6 +1,6 @@
 import styled from 'styled-components';
+import { OrderHistoryItemLi } from '.';
 import { CartItemListUl } from '../../pages/Cart';
-import OrderHistoryItemLi from './OrderHistoryItemLi';
 
 function OrderHistoryUl({ mealBoxes }) {
   return (

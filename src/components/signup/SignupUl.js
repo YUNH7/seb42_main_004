@@ -1,13 +1,13 @@
 import { useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
+import { GetTemplate } from '../commons';
+import { InputDiv } from '.';
+import { LoginButton } from '../login';
 import { setEmail } from '../../reducers/authReducer';
-import postData from '../../util/postData';
 import { useValid } from '../../hooks';
-import GetTemplate from '../commons/GetTemplate';
-import LoginButton from '../login/LoginButton';
-import InputDiv from './InputDiv';
+import { postData } from '../../util';
 
 function SignupUl() {
   const [inputValue, setInputValue] = useState({

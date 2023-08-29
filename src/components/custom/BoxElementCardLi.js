@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
-import logo_black from '../../assets/logo_black.png';
-import { deleteProduct, setProduct } from '../../reducers/customReducer';
 import { TextButton } from '../commons';
+import { deleteProduct, setProduct } from '../../reducers/customReducer';
+import { logo_black } from '../../assets';
 
 function BoxElementCardLi({ product, quantity, totalQuantity }) {
   quantity = quantity || 0;

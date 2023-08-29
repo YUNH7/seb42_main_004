@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import MainButton from '../commons/MainButton';
+import { MainButton } from '../commons';
 
 function PreAndNextButtons({ nextHandler }) {
   let navigate = useNavigate();

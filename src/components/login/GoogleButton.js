@@ -1,16 +1,18 @@
 import { useNavigate } from 'react-router-dom';
-import { useGoogleLogin } from '@react-oauth/google';
-import styled from 'styled-components';
-import axios from 'axios';
-import { FcGoogle } from '@react-icons/all-files/fc/FcGoogle.esm';
-import postData from '../../util/postData';
-import setAuthorizationToken from '../../util/setAuthorizationToken';
-import parseToken from '../../util/parseToken';
-import { setAuth } from '../../reducers/authReducer';
-import getData from '../../util/getData';
-import { setProfile } from '../../reducers/userReducer';
 import { useDispatch, useSelector } from 'react-redux';
+import { useGoogleLogin } from '@react-oauth/google';
+import axios from 'axios';
+import styled from 'styled-components';
+import { FcGoogle } from '@react-icons/all-files/fc/FcGoogle.esm';
+import { setAuth } from '../../reducers/authReducer';
 import { setCart } from '../../reducers/cartReducer';
+import { setProfile } from '../../reducers/userReducer';
+import {
+  getData,
+  parseToken,
+  postData,
+  setAuthorizationToken,
+} from '../../util';
 
 function GoogleButton() {
   const navigate = useNavigate();

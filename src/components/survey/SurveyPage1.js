@@ -1,11 +1,11 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-import InputLabelDiv from '../commons/InputLabelDiv';
-import PreAndNextButtons from './PreAndNextButtons';
-import { setProfile, setGender } from '../../reducers/surveyQuestionReducer';
-import SurveyBox from './SurveyBox';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import styled from 'styled-components';
+import { InputLabelDiv } from '../commons';
+import { PreAndNextButtons, SurveyBox } from '.';
+import { setProfile, setGender } from '../../reducers/surveyQuestionReducer';
+
 function SurveyPage1() {
   let navigate = useNavigate();
   let dispatch = useDispatch();

@@ -1,6 +1,7 @@
-import styled from 'styled-components';
-import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import styled from 'styled-components';
+
 function CartCounter() {
   let { mealboxes } = useSelector((state) => state.cartReducer.cart) || {
     mealboxes: [],

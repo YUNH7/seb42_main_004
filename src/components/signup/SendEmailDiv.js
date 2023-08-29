@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import postData from '../../util/postData';
-import GetTemplate from '../commons/GetTemplate';
-import ContentInputDiv from '../myInfo/ContentInputDiv';
-import MyInfoButton from '../myInfo/MyInfoButton';
+import { GetTemplate } from '../commons';
+import { ContentInputDiv, MyInfoButton } from '../myInfo';
+import { postData } from '../../util';
 
 function SendEmailDiv({ pathName }) {
   const [sendEmail, setSendEmail] = useState('');

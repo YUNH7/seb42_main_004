@@ -1,10 +1,10 @@
+import styled from 'styled-components';
+import { MealBoxItemsDiv } from '../cartPage';
 import {
   CartItemWrapperLi,
   CartItemTopDiv,
   CartItemBottomDiv,
 } from '../cartPage/CartItemLi';
-import MealBoxItemsDiv from '../cartPage/MealBoxItemsDiv';
-import styled from 'styled-components';
 
 function OrderHistoryItemLi({ mealBox }) {
   let { mealboxKcal, mealboxName, mealboxPrice, mealboxQuantity, products } =

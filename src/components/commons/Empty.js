@@ -1,11 +1,11 @@
-import { FaShoppingBasket } from '@react-icons/all-files/fa/FaShoppingBasket.esm';
-import styled from 'styled-components';
-import { GoNote } from '@react-icons/all-files/go/GoNote.esm';
 import { useLocation } from 'react-router-dom';
-function Empty() {
-  let location = useLocation();
+import styled from 'styled-components';
+import { FaShoppingBasket } from '@react-icons/all-files/fa/FaShoppingBasket.esm';
+import { GoNote } from '@react-icons/all-files/go/GoNote.esm';
 
-  let { pathname } = location;
+function Empty() {
+  let { pathname } = useLocation();
+
   return (
     <CartEmptyDiv>
       {pathname === '/cart' ? <FaShoppingBasket /> : <GoNote />}

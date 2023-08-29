@@ -1,14 +1,11 @@
-import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import ContentInputDiv from '../myInfo/ContentInputDiv';
-import MyInfoButton from './MyInfoButton';
-import AddressDiv from '../payment/AddessDiv';
-import GetTemplate from '../commons/GetTemplate';
+import { GetTemplate } from '../commons';
+import { ContentInputDiv, DeliveryInputDiv, MyInfoButton, ProfileImg } from '.';
+import { AddressDiv } from '../payment';
 import { useGET } from '../../hooks';
-import patchData from '../../util/patchData';
-import ProfileImg from './ProfileImg';
-import DeliveryInputDiv from './DeliveryInputDiv';
+import { patchData } from '../../util';
 
 function EditMyInfoUl() {
   const [inputValue, setInputValue] = useState({

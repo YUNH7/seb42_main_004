@@ -1,11 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import styled from 'styled-components';
+import { PreAndNextButtons, SurveyBox } from '.';
+import { SurveyH3 } from './SurveyPage1';
 import { setActive } from '../../reducers/surveyQuestionReducer';
 import getData from '../../util/getData';
-import styled from 'styled-components';
-import PreAndNextButtons from './PreAndNextButtons';
-import SurveyBox from './SurveyBox';
-import { SurveyH3 } from './SurveyPage1';
 
 function SurveyPage2({ name }) {
   let dispatch = useDispatch();

@@ -1,7 +1,7 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { AiOutlineUser } from '@react-icons/all-files/ai/AiOutlineUser.esm';
-import { useNavigate } from 'react-router-dom';
-import GetTemplate from '../commons/GetTemplate';
+import { GetTemplate } from '../commons';
 
 function SignupCompleteDiv() {
   const navigate = useNavigate();

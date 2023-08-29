@@ -1,19 +1,20 @@
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import postData from '../../util/postData';
-import LoginButton from './LoginButton';
 import { AiOutlineEye } from '@react-icons/all-files/ai/AiOutlineEye.esm';
 import { AiOutlineEyeInvisible } from '@react-icons/all-files/ai/AiOutlineEyeInvisible.esm';
-import parseToken from '../../util/parseToken';
-import { useDispatch, useSelector } from 'react-redux';
-import setAuthorizationToken from '../../util/setAuthorizationToken';
+import { GoogleButton, LoginButton } from '.';
+import { GetTemplate } from '../commons';
 import { setAuth } from '../../reducers/authReducer';
 import { setCart } from '../../reducers/cartReducer';
-import getData from '../../util/getData';
-import GetTemplate from '../commons/GetTemplate';
-import GoogleButton from './GoogleButton';
 import { setProfile } from '../../reducers/userReducer';
+import {
+  getData,
+  parseToken,
+  postData,
+  setAuthorizationToken,
+} from '../../util';
 
 function LoginUl() {
   const { admin } = useSelector((state) => state.authReducer);

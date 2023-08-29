@@ -1,10 +1,9 @@
 import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import PasswordInputDiv from './PasswordInputDiv';
-import MyInfoButton from './MyInfoButton';
-import patchData from '../../util/patchData';
+import { MyInfoButton, PasswordInputDiv } from './';
 import { useValid } from '../../hooks';
+import { patchData } from '../../util';
 
 function PasswordDiv() {
   const navigate = useNavigate();

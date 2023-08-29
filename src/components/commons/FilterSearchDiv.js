@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import FilterSelect from './FilterSelect';
-import SearchBarDiv from './SearchBarDiv';
+import { FilterSelect, SearchBarDiv } from '.';
 
 function FilterSearchDiv({ sortSubject, placeholder, toSearchBarDiv }) {
   return (

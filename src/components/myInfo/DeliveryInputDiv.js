@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import AddressDiv from '../payment/AddessDiv';
-import ContentInputDiv from './ContentInputDiv';
+import { ContentInputDiv } from '.';
+import { AddressDiv } from '../payment';
 
 function DeliveryInputDiv({
   same,

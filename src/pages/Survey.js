@@ -20,7 +20,7 @@ function Survey() {
           <Dot size="7" />
         </li>
       </Ul>
-      <Article page={page} />
+      <SurveyArticle page={page} />
     </Main>
   );
 }
@@ -34,9 +34,6 @@ const Main = styled.main`
   flex-direction: column;
   justify-content: center;
 `;
-
-const Article = styled(SurveyArticle)``;
-
 const Ul = styled.ul`
   list-style: none;
   display: flex;

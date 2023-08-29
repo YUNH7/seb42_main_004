@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import ContentDiv from '../myInfo/ContentDiv';
-import DeliveryInputDiv from '../myInfo/DeliveryInputDiv';
+import { ContentDiv, DeliveryInputDiv } from '../myInfo';
 
 function PaymentUl({
   save,

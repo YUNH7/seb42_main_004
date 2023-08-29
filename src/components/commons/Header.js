@@ -2,14 +2,11 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import CartCounter from './CartCounter';
-import MainButton from './MainButton';
-import Navbar from './Navbar';
 import { FaShoppingCart } from '@react-icons/all-files/fa/FaShoppingCart.esm';
 import { HiOutlineMenu } from '@react-icons/all-files/hi/HiOutlineMenu.esm';
-import logo from '../../assets/logo_black.png';
-import profile from '../../assets/profile.png';
+import { CartCounter, MainButton, Navbar } from '.';
 import { useToCustom, useInitialize } from '../../hooks';
+import { logo_black as logo, profile } from '../../assets';
 
 function Header() {
   const [isNav, setIsNav] = useState(false);

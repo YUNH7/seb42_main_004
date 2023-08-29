@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import ContentDiv from './ContentDiv';
+import { ContentDiv } from '.';
 
 function DeliveryDiv({ inputValue }) {
   return (

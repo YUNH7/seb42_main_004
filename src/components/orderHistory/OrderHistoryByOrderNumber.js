@@ -1,10 +1,8 @@
-import OrderHistoryPageButton from './OrderHistoryPageButton';
-import OrderHistoryUl from '../../components/orderHistory/OrderHistoryUl';
 import { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import patchData from '../../util/patchData';
-import deleteData from '../../util/deleteData';
 import { useSelector } from 'react-redux';
+import styled from 'styled-components';
+import { OrderHistoryPageButton, OrderHistoryUl } from '.';
+import { deleteData, patchData } from '../../util';
 
 function OrderHistoryByOrderNumber({ orders }) {
   let { admin } = useSelector((state) => state.authReducer);

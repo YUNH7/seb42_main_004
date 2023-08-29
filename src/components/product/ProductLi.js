@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import ModalDiv from '../commons/ModalDiv';
+import { ModalDiv, TextButton } from '../commons';
 import { MealBoxImg, MealBoxImgDiv } from '../allboxes/MealBoxCardLi';
-import logo_black from '../../assets/logo_black.png';
-import blankbucket from '../../assets/blankbucket.png';
 import { useDeleteSubject } from '../../hooks';
-import { TextButton } from '../commons';
+import { blankbucket, logo_black } from '../../assets';
 
 function ProductLi({ product, admin, reload }) {
   const [openModal, setOpenModal] = useState(false);

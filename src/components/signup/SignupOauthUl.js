@@ -1,18 +1,20 @@
 import { useEffect, useRef, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { GetTemplate } from '../commons';
+import { InputDiv } from '.';
+import { LoginButton } from '../login';
 import { setAuth } from '../../reducers/authReducer';
 import { setCart } from '../../reducers/cartReducer';
 import { setProfile } from '../../reducers/userReducer';
-import getData from '../../util/getData';
-import parseToken from '../../util/parseToken';
-import postData from '../../util/postData';
-import setAuthorizationToken from '../../util/setAuthorizationToken';
 import { useValid } from '../../hooks';
-import GetTemplate from '../commons/GetTemplate';
-import LoginButton from '../login/LoginButton';
-import InputDiv from './InputDiv';
+import {
+  getData,
+  parseToken,
+  postData,
+  setAuthorizationToken,
+} from '../../util';
 
 function SignupOauthUl() {
   const [inputValue, setInputValue] = useState({
