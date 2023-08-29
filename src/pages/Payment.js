@@ -5,7 +5,8 @@ import styled from 'styled-components';
 import { GetTemplate, CartAside } from '../components/commons';
 import { PaymentUl } from '../components/payment';
 import { deleteCartItem } from '../reducers/cartReducer';
-import { patchData, postData, useGET } from '../util';
+import { useGET } from '../hooks';
+import { patchData, postData } from '../util';
 
 function Payment() {
   const { orderId } = useParams();

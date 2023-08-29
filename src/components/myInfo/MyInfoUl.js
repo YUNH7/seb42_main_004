@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import ContentDiv from './ContentDiv';
 import GetTemplate from '../commons/GetTemplate';
-import useGET from '../../util/useGET';
+import { useGET } from '../../hooks';
 import postData from '../../util/postData';
 import EmailDiv from './EmailDiv';
 import DeliveryDiv from './DeliveryDiv';

@@ -3,7 +3,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { GetTemplate } from '../components/commons';
 import { MyInfoButton, PasswordInputDiv } from '../components/myInfo';
-import { patchData, useValid } from '../util';
+import { useValid } from '../hooks';
+import { patchData } from '../util';
 
 function FindPassword() {
   const location = useLocation();

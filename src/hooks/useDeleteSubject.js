@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-import deleteData from './deleteData';
+import { deleteData } from '../util';
 
 function useDeleteSubject(key) {
   const { search } = useLocation();

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { setEmail } from '../../reducers/authReducer';
 import postData from '../../util/postData';
-import useValid from '../../util/useValid';
+import { useValid } from '../../hooks';
 import GetTemplate from '../commons/GetTemplate';
 import LoginButton from '../login/LoginButton';
 import InputDiv from './InputDiv';

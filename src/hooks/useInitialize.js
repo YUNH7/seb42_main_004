@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
-import { setAuth, setEmail } from '../reducers/authReducer';
-import { initializeCart } from '../reducers/cartReducer';
 import { setProfile } from '../reducers/userReducer';
+import { initializeCart } from '../reducers/cartReducer';
+import { setAuth, setEmail } from '../reducers/authReducer';
 
 function useInitialize() {
   const dispatch = useDispatch();

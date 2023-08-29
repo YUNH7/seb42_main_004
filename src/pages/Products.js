@@ -10,7 +10,7 @@ import {
 } from '../components/commons';
 import { ProductLi } from '../components/product';
 import { MealBoxesUl, MealBoxesWrapDiv, SearchResultH3 } from './AllBoxes';
-import { useFilterSearch, useGET } from '../util';
+import { useFilterSearch, useGET } from '../hooks';
 
 function Products() {
   const { isLogin, admin } = useSelector((state) => state.authReducer);

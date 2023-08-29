@@ -5,13 +5,8 @@ import styled from 'styled-components';
 import { Footer, Header, Loading, ToTopButton } from './components/commons';
 import { setProfile } from './reducers/userReducer';
 import { setAuth, setEmail } from './reducers/authReducer';
-import {
-  checkFooter,
-  getData,
-  parseToken,
-  setAuthorizationToken,
-  useInitialize,
-} from './util';
+import { getData, parseToken, setAuthorizationToken } from './util';
+import { checkFooter, useInitialize } from './hooks';
 import GlobalStyle from './global/globalstyles';
 
 const Cart = lazy(() => import('./pages/Cart'));

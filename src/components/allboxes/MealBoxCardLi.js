@@ -6,16 +6,16 @@ import MainButton from '../commons/MainButton';
 import { TextButton } from '../commons/ModalDiv';
 import logo_black from '../../assets/logo_black.png';
 import blankbucket from '../../assets/blankbucket.png';
-import postData from '../../util/postData';
-import goToCustom from '../../util/goToCustom';
-import useDeleteSubject from '../../util/useDeleteSubject';
 import { addCartItem } from '../../reducers/cartReducer';
+import postData from '../../util/postData';
+import { useToCustom, useDeleteSubject } from '../../hooks';
 
 function MealBoxCardLi({ mealBox, reload, title }) {
   const [notification, setNotification] = useState(false);
   const { isLogin, admin } = useSelector((state) => state.authReducer);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const toCustom = useToCustom(mealBox);
   const deleteSubject = useDeleteSubject('mealboxes');
 
   const addToCart = async () => {
@@ -67,7 +67,7 @@ function MealBoxCardLi({ mealBox, reload, title }) {
         </MealBoxH3>
         <MealBoxCardButtonDiv>
           <MainButton
-            handler={goToCustom(mealBox)}
+            handler={toCustom}
             name={!admin || !mealBox ? '커스텀 하기' : '밀박스 수정'}
           />
           {mealBox && (

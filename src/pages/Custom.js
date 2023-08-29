@@ -11,7 +11,7 @@ import { TextButton } from '../components/commons/ModalDiv';
 import { BoxElementCardLi, CustomAside } from '../components/custom';
 import { MealBoxesWrapDiv } from './AllBoxes';
 import { initializeCustom } from '../reducers/customReducer';
-import { useFilterSearch, useGET } from '../util';
+import { useFilterSearch, useGET } from '../hooks';
 
 function Custom() {
   const { custom } = useSelector((state) => state.customReducer);

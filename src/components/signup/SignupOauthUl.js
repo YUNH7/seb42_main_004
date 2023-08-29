@@ -9,7 +9,7 @@ import getData from '../../util/getData';
 import parseToken from '../../util/parseToken';
 import postData from '../../util/postData';
 import setAuthorizationToken from '../../util/setAuthorizationToken';
-import useValid from '../../util/useValid';
+import { useValid } from '../../hooks';
 import GetTemplate from '../commons/GetTemplate';
 import LoginButton from '../login/LoginButton';
 import InputDiv from './InputDiv';

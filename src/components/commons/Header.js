@@ -9,14 +9,14 @@ import { FaShoppingCart } from '@react-icons/all-files/fa/FaShoppingCart.esm';
 import { HiOutlineMenu } from '@react-icons/all-files/hi/HiOutlineMenu.esm';
 import logo from '../../assets/logo_black.png';
 import profile from '../../assets/profile.png';
-import goToCustom from '../../util/goToCustom';
-import useInitialize from '../../util/useInitialize';
+import { useToCustom, useInitialize } from '../../hooks';
 
 function Header() {
   const [isNav, setIsNav] = useState(false);
   const { isLogin, admin } = useSelector((state) => state.authReducer);
   const { imagePath, name } = useSelector((state) => state.userReducer);
   const navigate = useNavigate();
+  const toCustom = useToCustom();
   const initialize = useInitialize();
 
   const handleClick = () => {
@@ -50,7 +50,7 @@ function Header() {
               </li>
             )}
             <li>
-              <button onClick={goToCustom()}>커스텀 밀박스 만들기</button>
+              <button onClick={toCustom}>커스텀 밀박스 만들기</button>
             </li>
             <li>
               <button onClick={() => navigate('/mealboxes')}>

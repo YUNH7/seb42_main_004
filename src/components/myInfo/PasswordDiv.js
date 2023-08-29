@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import PasswordInputDiv from './PasswordInputDiv';
 import MyInfoButton from './MyInfoButton';
 import patchData from '../../util/patchData';
-import useValid from '../../util/useValid';
+import { useValid } from '../../hooks';
 
 function PasswordDiv() {
   const navigate = useNavigate();

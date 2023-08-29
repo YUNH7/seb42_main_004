@@ -6,13 +6,13 @@ import {
   setIdNameImage,
 } from '../reducers/customReducer';
 
-function goToCustom(mealBox) {
+function useToCustom(mealBox) {
   const { admin } = useSelector((state) => state.authReducer);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const aux = () => {
+  const toCustom = () => {
     if (mealBox?.products) {
       dispatch(addProductInBox(mealBox.products));
       if (admin) {
@@ -22,7 +22,7 @@ function goToCustom(mealBox) {
     } else if (!mealBox && admin) dispatch(initializeCustom());
     navigate('/custom');
   };
-  return aux;
+  return toCustom;
 }
 
-export default goToCustom;
+export default useToCustom;

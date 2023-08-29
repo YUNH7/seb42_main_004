@@ -5,7 +5,7 @@ import ContentInputDiv from '../myInfo/ContentInputDiv';
 import MyInfoButton from './MyInfoButton';
 import AddressDiv from '../payment/AddessDiv';
 import GetTemplate from '../commons/GetTemplate';
-import useGET from '../../util/useGET';
+import { useGET } from '../../hooks';
 import patchData from '../../util/patchData';
 import ProfileImg from './ProfileImg';
 import DeliveryInputDiv from './DeliveryInputDiv';

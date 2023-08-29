@@ -9,7 +9,7 @@ import {
   PaginationUl,
 } from '../components/commons';
 import { MealBoxCardLi } from '../components/allboxes';
-import { useFilterSearch, useGET } from '../util';
+import { useFilterSearch, useGET } from '../hooks';
 
 function AllBoxes() {
   const { user, admin } = useSelector((state) => state.authReducer);

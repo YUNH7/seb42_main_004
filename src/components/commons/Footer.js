@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import LogoWhite from '../../assets/logo_white.png';
-import checkFooter from '../../util/checkFooter';
+import { checkFooter } from '../../hooks';
 
 function Footer() {
   // (모바일) 사용자/관리자 커스텀 페이지, 결제 페이지, 장바구니 -> X

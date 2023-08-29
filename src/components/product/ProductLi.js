@@ -4,7 +4,7 @@ import ModalDiv, { TextButton } from '../commons/ModalDiv';
 import { MealBoxImg, MealBoxImgDiv } from '../allboxes/MealBoxCardLi';
 import logo_black from '../../assets/logo_black.png';
 import blankbucket from '../../assets/blankbucket.png';
-import useDeleteSubject from '../../util/useDeleteSubject';
+import { useDeleteSubject } from '../../hooks';
 
 function ProductLi({ product, admin, reload }) {
   const [openModal, setOpenModal] = useState(false);

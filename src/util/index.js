@@ -1,13 +1,6 @@
-export { default as checkFooter } from './checkFooter';
 export { default as deleteData } from './deleteData';
 export { default as getData } from './getData';
-export { default as goToCustom } from './goToCustom';
 export { default as parseToken } from './parseToken';
 export { default as patchData } from './patchData';
 export { default as postData } from './postData';
 export { default as setAuthorizationToken } from './setAuthorizationToken';
-export { default as useDeleteSubject } from './useDeleteSubject';
-export { default as useFilterSearch } from './useFilterSearch';
-export { default as useGET } from './useGET';
-export { default as useInitialize } from './useInitialize';
-export { default as useValid } from './useValid';

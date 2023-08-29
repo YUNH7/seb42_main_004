@@ -3,7 +3,7 @@ import { BsFillPersonFill } from '@react-icons/all-files/bs/BsFillPersonFill.esm
 import { IoIosArrowForward } from '@react-icons/all-files/io/IoIosArrowForward.esm';
 import { FiLogOut } from '@react-icons/all-files/fi/FiLogOut.esm';
 import profile from '../../assets/profile.png';
-import goToCustom from '../../util/goToCustom';
+import { useToCustom } from '../../hooks';
 
 function Navbar({
   isLogin,
@@ -13,6 +13,7 @@ function Navbar({
   handleLogout,
   navigate,
 }) {
+  const toCustom = useToCustom();
   return (
     <ModalContainerDiv onClick={handleClick}>
       <NavDiv onClick={(e) => e.stopPropagation()}>
@@ -42,7 +43,7 @@ function Navbar({
             </button>
           </li>
           <li>
-            <button onClick={goToCustom()}>커스텀 밀박스 만들기</button>
+            <button onClick={toCustom}>커스텀 밀박스 만들기</button>
           </li>
           <li>
             <button onClick={() => navigate('/mealboxes')}>
