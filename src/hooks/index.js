@@ -1,4 +1,4 @@
-export { default as checkFooter } from './checkFooter';
+export { default as useHasFooter } from './useHasFooter';
 export { default as useToCustom } from './useToCustom';
 export { default as useDeleteSubject } from './useDeleteSubject';
 export { default as useFilterSearch } from './useFilterSearch';

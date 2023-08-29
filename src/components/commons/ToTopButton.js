@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { VscTriangleUp } from '@react-icons/all-files/vsc/VscTriangleUp.esm';
-import { checkFooter } from '../../hooks';
+import { useHasFooter } from '../../hooks';
 
 function ToTopButton() {
   const { path } = useLocation();
   const [scroll, setScroll] = useState(false);
+  const hasFooter = useHasFooter();
 
   const hasScroll = () => {
     setScroll(document.body.scrollHeight > window.innerHeight);
@@ -29,7 +30,7 @@ function ToTopButton() {
     <Button
       onClick={() => window.scrollTo(0, 0)}
       scroll={scroll && 1}
-      havefooter={checkFooter() && 1}
+      havefooter={hasFooter && 1}
     >
       <VscTriangleUp />
     </Button>

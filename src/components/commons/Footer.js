@@ -1,48 +1,49 @@
 import styled from 'styled-components';
 import LogoWhite from '../../assets/logo_white.png';
-import { checkFooter } from '../../hooks';
+import { useHasFooter } from '../../hooks';
+
+let fe = [
+  {
+    name: '맹쥬',
+    github: 'https://github.com/myungju030/',
+    blog: 'https://velog.io/@jooooo',
+  },
+  {
+    name: '하미',
+    github: 'https://github.com/qwerty00ui88',
+    blog: 'https://velog.io/@hameee',
+  },
+  {
+    name: '유니',
+    github: 'https://github.com/YUNH7',
+    blog: 'https://codeyun2.tistory.com/',
+  },
+];
+
+let be = [
+  {
+    name: '써니',
+    github: 'https://github.com/Taeyang-Jin',
+    blog: 'https://suns3t-cording.tistory.com/',
+  },
+  {
+    name: '주니',
+    github: 'https://github.com/WiJunSeong',
+    blog: 'https://velog.io/@jsw4883',
+  },
+  {
+    name: '혀기',
+    github: 'https://github.com/sanggur591',
+    blog: 'https://velog.io/@sanggur591',
+  },
+];
 
 function Footer() {
   // (모바일) 사용자/관리자 커스텀 페이지, 결제 페이지, 장바구니 -> X
-
-  let fe = [
-    {
-      name: '맹쥬',
-      github: 'https://github.com/myungju030/',
-      blog: 'https://velog.io/@jooooo',
-    },
-    {
-      name: '하미',
-      github: 'https://github.com/qwerty00ui88',
-      blog: 'https://velog.io/@hameee',
-    },
-    {
-      name: '유니',
-      github: 'https://github.com/YUNH7',
-      blog: 'https://codeyun2.tistory.com/',
-    },
-  ];
-
-  let be = [
-    {
-      name: '써니',
-      github: 'https://github.com/Taeyang-Jin',
-      blog: 'https://suns3t-cording.tistory.com/',
-    },
-    {
-      name: '주니',
-      github: 'https://github.com/WiJunSeong',
-      blog: 'https://velog.io/@jsw4883',
-    },
-    {
-      name: '혀기',
-      github: 'https://github.com/sanggur591',
-      blog: 'https://velog.io/@sanggur591',
-    },
-  ];
+  const hasFooter = useHasFooter();
 
   return (
-    <FooterWrapper className="marginbase" isVisible={!checkFooter()}>
+    <FooterWrapper className="marginbase" isVisible={!hasFooter}>
       <FooterContent className="margininside">
         <LogoImg src={LogoWhite} alt="logo" />
         <LineHr />
