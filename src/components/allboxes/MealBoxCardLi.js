@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import MainButton from '../commons/MainButton';
-import { TextButton } from '../commons/ModalDiv';
 import logo_black from '../../assets/logo_black.png';
 import blankbucket from '../../assets/blankbucket.png';
 import { addCartItem } from '../../reducers/cartReducer';
 import postData from '../../util/postData';
 import { useToCustom, useDeleteSubject } from '../../hooks';
+import { TextButton } from '../commons';
 
 function MealBoxCardLi({ mealBox, reload, title }) {
   const [notification, setNotification] = useState(false);
@@ -86,9 +86,11 @@ function MealBoxCardLi({ mealBox, reload, title }) {
           )}
           <NotificationDiv add={notification && 1}>
             <p>{mealBox?.name}이(가) 장바구니에 추가되었습니다.</p>
-            <TextButton className="linkstyle" onClick={() => navigate('/cart')}>
-              장바구니로 이동하기
-            </TextButton>
+            <TextButton
+              inButton="장바구니로 이동하기"
+              onClick={() => navigate('/cart')}
+              color="var(--white)"
+            />
           </NotificationDiv>
         </MealBoxCardButtonDiv>
       </MealBoxCardContainerDiv>

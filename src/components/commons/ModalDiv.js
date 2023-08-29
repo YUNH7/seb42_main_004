@@ -218,18 +218,15 @@ const ModalContentDiv = styled.div`
     border-radius: 0px;
   }
 `;
-export const TextButton = styled.button`
-  font-weight: bold;
-  border: none;
-  background: none;
-  padding: 4px;
-`;
-const ModalCloseButton = styled(TextButton)`
+const ModalCloseButton = styled.button`
   position: absolute;
-  right: 0;
   top: 0;
+  right: 0;
   width: 3rem;
   height: 3rem;
+  padding: 4px;
+  border: none;
+  background: none;
   font-size: 1.5rem;
   font-weight: normal;
 `;

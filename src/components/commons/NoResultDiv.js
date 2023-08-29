@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { TextButton } from './ModalDiv';
+import { TextButton } from '.';
 
 function NoResultDiv({ search, notFoundWord, replaceWord }) {
   const { admin } = useSelector((state) => state.authReducer);
@@ -13,11 +13,11 @@ function NoResultDiv({ search, notFoundWord, replaceWord }) {
           <p>찾고 계신 {notFoundWord}은(는) 목록에 추가될 예정입니다</p>
           <p>
             <TextButton
-              className="linkstyle"
+              inButton={replaceWord}
               onClick={() => search(replaceWord)}
-            >
-              {replaceWord}
-            </TextButton>
+              padding="4px 4px 4px 0"
+              font="basic"
+            />
             는 어떠세요?
           </p>
         </>
@@ -30,8 +30,4 @@ export default NoResultDiv;
 
 const Div = styled.div`
   margin: 1rem 0;
-
-  button {
-    padding-left: 0;
-  }
 `;

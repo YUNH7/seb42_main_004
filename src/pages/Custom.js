@@ -4,10 +4,10 @@ import styled from 'styled-components';
 import {
   FilterSearchDiv,
   GetTemplate,
+  TextButton,
   NoResultDiv,
   PaginationUl,
 } from '../components/commons';
-import { TextButton } from '../components/commons/ModalDiv';
 import { BoxElementCardLi, CustomAside } from '../components/custom';
 import { MealBoxesWrapDiv } from './AllBoxes';
 import { initializeCustom } from '../reducers/customReducer';
@@ -51,17 +51,15 @@ function Custom() {
           <h1>{admin && custom ? custom.name : '커스텀 밀박스'}</h1>
           <AsideButtonDiv>
             <TextButton
+              inButton={`선택된 목록 ${openCustom ? '닫기' : '보기'}`}
               onClick={() => setOpenCustom(!openCustom)}
-              className="linkstyle"
-            >
-              선택된 목록 {openCustom ? '닫기' : '보기'}
-            </TextButton>
+              font="basic"
+            />
             <TextButton
+              inButton="다시 담기"
               onClick={() => dispatch(initializeCustom())}
-              className="linkstyle"
-            >
-              다시 담기
-            </TextButton>
+              font="basic"
+            />
           </AsideButtonDiv>
         </CustomTitleDiv>
         <CustomSelectDiv>

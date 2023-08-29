@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
-import { TextButton } from '../commons/ModalDiv';
 import logo_black from '../../assets/logo_black.png';
 import { deleteProduct, setProduct } from '../../reducers/customReducer';
+import { TextButton } from '../commons';
 
 function BoxElementCardLi({ product, quantity, totalQuantity }) {
   quantity = quantity || 0;
@@ -42,20 +42,28 @@ function BoxElementCardLi({ product, quantity, totalQuantity }) {
           <span>{product.price.toLocaleString('ko-KR')}원</span>
         </ProductDetailDiv>
       </ProductInfoDiv>
-      <ProductButtonDiv
+      <div
         role="button"
         tabIndex={0}
         onKeyUp={(e) => e.stopPropagation()}
         onClick={(e) => e.stopPropagation()}
       >
-        <TextButton onClick={changeQuantity('minus')} className="linkstyle">
-          -
-        </TextButton>
+        <TextButton
+          inButton="-"
+          onClick={changeQuantity('minus')}
+          padding="0.5rem"
+          fs="1.3rem"
+          font="basic"
+        />
         <ProductQuantitySpan>{quantity}</ProductQuantitySpan>
-        <TextButton onClick={changeQuantity('plus')} className="linkstyle">
-          +
-        </TextButton>
-      </ProductButtonDiv>
+        <TextButton
+          inButton="+"
+          onClick={changeQuantity('plus')}
+          padding="0.5rem"
+          fs="1.3rem"
+          font="basic"
+        />
+      </div>
     </ProductContainerLi>
   );
 }
@@ -106,14 +114,5 @@ const ProductDetailDiv = styled.div`
 const ProductQuantitySpan = styled.span`
   font-weight: bold;
   margin: 4px;
-`;
-const ProductButtonDiv = styled.div`
-  > button,
-  > span {
-    font-size: 1.3rem;
-  }
-
-  > button {
-    padding: 0.5rem;
-  }
+  font-size: 1.3rem;
 `;

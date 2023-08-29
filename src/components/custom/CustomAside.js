@@ -2,12 +2,13 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import ModalDiv, { TextButton } from '../commons/ModalDiv';
+import ModalDiv from '../commons/ModalDiv';
 import { AsideSignatureButton, AsideWrapper } from '../commons/CartAside';
 import { deleteProduct, initializeCustom } from '../../reducers/customReducer';
 import { addCartItem, deleteCartItem } from '../../reducers/cartReducer';
 import postData from '../../util/postData';
 import deleteData from '../../util/deleteData';
+import { TextButton } from '../commons';
 
 function CustomAside({ custom }) {
   const { isLogin, admin } = useSelector((state) => state.authReducer);
@@ -84,11 +85,11 @@ function CustomAside({ custom }) {
                 <span>
                   {`${product.quantity}`}
                   <TextButton
+                    inButton="&#10005;"
                     onClick={() => dispatch(deleteProduct(product.productId))}
-                    className="linkstyle"
-                  >
-                    &#10005;
-                  </TextButton>
+                    margin="0 0 0 0.5rem"
+                    font="basic"
+                  />
                 </span>
               </ElementInBucketLi>
             ))}
@@ -175,10 +176,6 @@ const ElementInBucketLi = styled.li`
     font-size: 0.8rem;
     margin-right: -2px;
     word-break: keep-all;
-
-    > button {
-      margin-left: 0.5rem;
-    }
   }
 `;
 const InAsidePriceDiv = styled.div`

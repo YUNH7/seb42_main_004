@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { TextButton } from '../commons/ModalDiv';
-import { HiPlus, HiMinus } from 'react-icons/hi';
+import { HiPlus as PlusIcon, HiMinus as MunusIcon } from 'react-icons/hi';
 import { setQuantity, deleteCartItem } from '../../reducers/cartReducer';
 import patchData from '../../util/patchData';
 import deleteData from '../../util/deleteData';
+import { TextButton } from '../commons';
 
 function MealBoxCounterDiv({ cartMealboxId, quantity }) {
   let dispatch = useDispatch();
@@ -30,13 +30,17 @@ function MealBoxCounterDiv({ cartMealboxId, quantity }) {
 
   return (
     <CounterDiv>
-      <TextButton className="linkstyle" onClick={handleMinus}>
-        <HiMinus size="20" />
-      </TextButton>
+      <TextButton
+        inButton={<MunusIcon size="20" />}
+        onClick={handleMinus}
+        padding="0 5px"
+      />
       <Count>{quantity}</Count>
-      <TextButton className="linkstyle" onClick={handlePlus}>
-        <HiPlus size="20" />
-      </TextButton>
+      <TextButton
+        inButton={<PlusIcon size="20" />}
+        onClick={handlePlus}
+        padding="0 5px"
+      />
     </CounterDiv>
   );
 }
@@ -45,15 +49,10 @@ export default MealBoxCounterDiv;
 
 const CounterDiv = styled.div`
   display: flex;
-
-  > button {
-    padding: 0 5px;
-    height: fit-content;
-  }
+  height: fit-content;
 
   svg {
     padding-top: 5px;
-    pointer-events: none;
     @media (max-width: 480px) {
       padding: 2.5px 0;
     }
@@ -62,5 +61,4 @@ const CounterDiv = styled.div`
 
 const Count = styled.div`
   font-size: 1.2rem;
-  height: fit-content;
 `;

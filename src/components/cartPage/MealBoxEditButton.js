@@ -1,8 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import styled from 'styled-components';
-import { TextButton } from '../commons/ModalDiv';
 import { addProductInBox } from '../../reducers/customReducer';
+import { TextButton } from '../commons';
 
 function MealBoxEditButton({ cartMealboxId }) {
   let navigate = useNavigate();
@@ -22,11 +21,17 @@ function MealBoxEditButton({ cartMealboxId }) {
     navigate('/custom', { state: { cartMealboxId, quantity } });
   };
 
-  return <Button onClick={customPageLink}>커스텀 하기</Button>;
+  return (
+    <TextButton
+      inButton="커스텀 하기"
+      onClick={customPageLink}
+      padding="0"
+      margin="0 0 -0.1rem"
+      color="var(--black)"
+      hover="none"
+      fs="1.2rem"
+    />
+  );
 }
 
 export default MealBoxEditButton;
-
-const Button = styled(TextButton)`
-  margin-bottom: -0.1rem;
-`;

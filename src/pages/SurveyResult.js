@@ -1,9 +1,8 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { Error } from '.';
-import { HelmetTitle } from '../components/commons';
-import { TextButton } from '../components/commons/ModalDiv';
+import { HelmetTitle, TextButton } from '../components/commons';
 import { MealBoxCardLi } from '../components/allboxes';
 import { MealBoxesWrapDiv, MealBoxesUl } from './AllBoxes';
 import { deleteSurveyRcmd } from '../reducers/surveyRcmdReducer';
@@ -24,28 +23,29 @@ function SurveyResult() {
     }
   };
 
+  useEffect(() => {
+    if (!surveyRcmd || !surveyRcmd?.breakfast) navigate('/error');
+  }, []);
+
   return (
-    <>
-      {surveyRcmd.breakfast ? (
-        <MealBoxesWrapDiv className="margininside">
-          <HelmetTitle title="추천 결과 페이지" />
-          <h1>추천 결과 페이지(｡•̀ᴗ-)✧</h1>
-          <MealBoxesUl>
-            <MealBoxCardLi title="아침" mealBox={surveyRcmd.breakfast} />
-            <MealBoxCardLi title="점심" mealBox={surveyRcmd.lunch} />
-            <MealBoxCardLi title="저녁" mealBox={surveyRcmd.dinner} />
-          </MealBoxesUl>
-          <SurveyRetryDiv>
-            <TextButton onClick={surveyRetry} className="linkstyle">
-              다시 추천 받기
-            </TextButton>
-            <p>현재 추천 받은 밀박스가 사라집니다</p>
-          </SurveyRetryDiv>
-        </MealBoxesWrapDiv>
-      ) : (
-        <Error />
-      )}
-    </>
+    <MealBoxesWrapDiv className="margininside">
+      <HelmetTitle title="추천 결과 페이지" />
+      <h1>추천 결과 페이지(｡•̀ᴗ-)✧</h1>
+      <MealBoxesUl>
+        <MealBoxCardLi title="아침" mealBox={surveyRcmd.breakfast} />
+        <MealBoxCardLi title="점심" mealBox={surveyRcmd.lunch} />
+        <MealBoxCardLi title="저녁" mealBox={surveyRcmd.dinner} />
+      </MealBoxesUl>
+      <SurveyRetryDiv>
+        <TextButton
+          inButton="다시 추천 받기"
+          onClick={surveyRetry}
+          font="basic"
+          margin="0 -4px 0 0"
+        />
+        <p>현재 추천 받은 밀박스가 사라집니다</p>
+      </SurveyRetryDiv>
+    </MealBoxesWrapDiv>
   );
 }
 
@@ -57,8 +57,4 @@ const SurveyRetryDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-
-  > button {
-    margin-right: -4px;
-  }
 `;

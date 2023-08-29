@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import ModalDiv, { TextButton } from '../commons/ModalDiv';
+import ModalDiv from '../commons/ModalDiv';
 import { MealBoxImg, MealBoxImgDiv } from '../allboxes/MealBoxCardLi';
 import logo_black from '../../assets/logo_black.png';
 import blankbucket from '../../assets/blankbucket.png';
 import { useDeleteSubject } from '../../hooks';
+import { TextButton } from '../commons';
 
 function ProductLi({ product, admin, reload }) {
   const [openModal, setOpenModal] = useState(false);
@@ -47,14 +48,20 @@ function ProductLi({ product, admin, reload }) {
       </ProductInfoDiv>
       {admin && product && (
         <ButtonDiv>
-          <TextButton onClick={() => setOpenModal(true)}>수정</TextButton>
           <TextButton
+            inButton="수정"
+            onClick={() => setOpenModal(true)}
+            font="basic"
+            hover="none"
+          />
+          <TextButton
+            inButton="삭제"
             onClick={() =>
               deleteSubject(product.name, product.productId, reload)
             }
-          >
-            삭제
-          </TextButton>
+            font="basic"
+            hover="none"
+          />
         </ButtonDiv>
       )}
     </ContainerLi>
@@ -90,8 +97,4 @@ const ButtonDiv = styled.div`
   display: flex;
   justify-content: space-around;
   width: 100%;
-
-  > button {
-    flex: 1;
-  }
 `;

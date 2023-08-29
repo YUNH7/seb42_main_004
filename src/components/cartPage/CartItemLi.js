@@ -71,22 +71,12 @@ export const CartItemBottomDiv = styled.div`
   flex-grow: 1;
 `;
 
-export const CartItemBottomButtonsDiv = styled.div`
+const CartItemBottomButtonsDiv = styled.div`
   display: flex;
   align-items: flex-end;
 
-  > *:last-child {
-    font-size: 1.2rem;
-    font-family: 'IBM Plex Sans KR', sans-serif;
-  }
-
   > div {
     margin-right: 8px;
-  }
-
-  > button {
-    margin-bottom: -0.16rem;
-    padding: 0;
   }
 `;
 
