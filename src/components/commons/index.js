@@ -10,6 +10,7 @@ export { default as GetTemplate } from './GetTemplate';
 export { default as Header } from './Header';
 export { default as HelmetTitle } from './HelmetTitle';
 export { default as InputLabelDiv } from './InputLabelDiv';
+export { default as TextButton } from './TextButton';
 export { default as Loading } from './Loading';
 export { default as MainButton } from './MainButton';
 export { default as ModalDiv } from './ModalDiv';
