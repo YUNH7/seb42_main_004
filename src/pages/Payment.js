@@ -2,13 +2,10 @@ import { useEffect, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import GetTemplate from '../components/commons/GetTemplate';
-import CartAside from '../components/commons/CartAside';
-import PaymentUl from '../components/payment/PaymentUl';
+import { GetTemplate, CartAside } from '../components/commons';
+import { PaymentUl } from '../components/payment';
 import { deleteCartItem } from '../reducers/cartReducer';
-import patchData from '../util/patchData';
-import postData from '../util/postData';
-import useGET from '../util/useGET';
+import { patchData, postData, useGET } from '../util';
 
 function Payment() {
   const { orderId } = useParams();

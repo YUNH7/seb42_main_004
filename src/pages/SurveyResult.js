@@ -1,12 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import Error from './Error';
-import MealBoxCardLi from '../components/allboxes/MealBoxCardLi';
+import { Error } from '.';
+import { HelmetTitle } from '../components/commons';
 import { TextButton } from '../components/commons/ModalDiv';
+import { MealBoxCardLi } from '../components/allboxes';
 import { MealBoxesWrapDiv, MealBoxesUl } from './AllBoxes';
 import { deleteSurveyRcmd } from '../reducers/surveyRcmdReducer';
-import HelmetTitle from '../components/commons/HelmetTitle';
 
 function SurveyResult() {
   const { surveyRcmd } = useSelector((state) => state.surveyRcmdReducer);

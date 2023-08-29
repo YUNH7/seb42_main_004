@@ -2,12 +2,10 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import CartItemLi from '../components/cartPage/CartItemLi';
-import CartAside from '../components/commons/CartAside';
-import Empty from '../components/commons/Empty';
+import { CartAside, Empty } from '../components/commons';
+import { CartItemLi } from '../components/cartPage';
 import { setCart } from '../reducers/cartReducer';
-import postData from '../util/postData';
-import getData from '../util/getData';
+import { getData, postData } from '../util';
 
 function Cart() {
   let navigate = useNavigate();

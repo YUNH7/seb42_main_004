@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import SendEmailDiv from '../components/signup/SendEmailDiv';
+import { SendEmailDiv } from '../components/signup';
 
 function SendEmail({ pathName }) {
   return (

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import ConfirmEmailDiv from '../components/signup/ConfirmEmailDiv';
+import { ConfirmEmailDiv } from '../components/signup';
 
 function ConfirmEmail() {
   return (

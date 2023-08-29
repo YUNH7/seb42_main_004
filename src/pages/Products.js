@@ -2,14 +2,15 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import NoResultDiv from '../components/commons/NoResultDiv';
-import ProductLi from '../components/product/ProductLi';
-import GetTemplate from '../components/commons/GetTemplate';
-import PaginationUl from '../components/commons/PaginationUl';
-import FilterSearchDiv from '../components/commons/FilterSearchDiv';
+import {
+  FilterSearchDiv,
+  GetTemplate,
+  NoResultDiv,
+  PaginationUl,
+} from '../components/commons';
+import { ProductLi } from '../components/product';
 import { MealBoxesUl, MealBoxesWrapDiv, SearchResultH3 } from './AllBoxes';
-import useGET from '../util/useGET';
-import useFilterSearch from '../util/useFilterSearch';
+import { useFilterSearch, useGET } from '../util';
 
 function Products() {
   const { isLogin, admin } = useSelector((state) => state.authReducer);

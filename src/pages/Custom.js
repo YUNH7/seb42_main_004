@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import NoResultDiv from '../components/commons/NoResultDiv';
-import CustomAside from '../components/custom/CustomAside';
-import GetTemplate from '../components/commons/GetTemplate';
-import PaginationUl from '../components/commons/PaginationUl';
-import FilterSearchDiv from '../components/commons/FilterSearchDiv';
-import BoxElementCardLi from '../components/custom/BoxElementCardLi';
+import {
+  FilterSearchDiv,
+  GetTemplate,
+  NoResultDiv,
+  PaginationUl,
+} from '../components/commons';
 import { TextButton } from '../components/commons/ModalDiv';
+import { BoxElementCardLi, CustomAside } from '../components/custom';
 import { MealBoxesWrapDiv } from './AllBoxes';
-import useGET from '../util/useGET';
-import useFilterSearch from '../util/useFilterSearch';
 import { initializeCustom } from '../reducers/customReducer';
+import { useFilterSearch, useGET } from '../util';
 
 function Custom() {
   const { custom } = useSelector((state) => state.customReducer);

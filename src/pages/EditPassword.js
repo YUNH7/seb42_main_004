@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import TabBar from '../components/commons/TabBar';
-import MyInfoUl from '../components/myInfo/MyInfoUl';
+import { TabBar } from '../components/commons';
+import { MyInfoUl } from '../components/myInfo';
 
 function EditPassword() {
   return (

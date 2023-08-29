@@ -1,11 +1,9 @@
 import { useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import GetTemplate from '../components/commons/GetTemplate';
-import MyInfoButton from '../components/myInfo/MyInfoButton';
-import PasswordInputDiv from '../components/myInfo/PasswordInputDiv';
-import patchData from '../util/patchData';
-import useValid from '../util/useValid';
+import { GetTemplate } from '../components/commons';
+import { MyInfoButton, PasswordInputDiv } from '../components/myInfo';
+import { patchData, useValid } from '../util';
 
 function FindPassword() {
   const location = useLocation();

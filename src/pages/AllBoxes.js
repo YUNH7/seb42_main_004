@@ -1,14 +1,15 @@
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import NoResultDiv from '../components/commons/NoResultDiv';
-import BannerLink from '../components/commons/BannerLink';
-import GetTemplate from '../components/commons/GetTemplate';
-import PaginationUl from '../components/commons/PaginationUl';
-import MealBoxCardLi from '../components/allboxes/MealBoxCardLi';
-import FilterSearchDiv from '../components/commons/FilterSearchDiv';
-import useGET from '../util/useGET';
-import useFilterSearch from '../util/useFilterSearch';
+import {
+  BannerLink,
+  FilterSearchDiv,
+  GetTemplate,
+  NoResultDiv,
+  PaginationUl,
+} from '../components/commons';
+import { MealBoxCardLi } from '../components/allboxes';
+import { useFilterSearch, useGET } from '../util';
 
 function AllBoxes() {
   const { user, admin } = useSelector((state) => state.authReducer);

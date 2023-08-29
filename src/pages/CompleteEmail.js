@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import ConfirmEmailDiv from '../components/signup/ConfirmEmailDiv';
+import { ConfirmEmailDiv } from '../components/signup';
 
 function CompleteEmail() {
   const navigate = useNavigate();

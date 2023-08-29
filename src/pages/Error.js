@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import HelmetTitle from '../components/commons/HelmetTitle';
-import checkFooter from '../util/checkFooter';
+import { HelmetTitle } from '../components/commons';
+import { checkFooter } from '../util';
 
 function Error() {
   return (

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import SignupOauthUl from '../components/signup/SignupOauthUl';
+import { SignupOauthUl } from '../components/signup';
 
 function SignupOauth() {
   return (

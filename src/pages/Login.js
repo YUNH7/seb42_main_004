@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import LoginUl from '../components/login/LoginUl';
+import { LoginUl } from '../components/login';
 
 function Login() {
   return (

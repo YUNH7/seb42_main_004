@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import RequestEmailDiv from '../components/signup/RequestEmailDiv';
+import { RequestEmailDiv } from '../components/signup';
 
 function RequestEmail() {
   const { email } = useSelector((state) => state.authReducer.user);

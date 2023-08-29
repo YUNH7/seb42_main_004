@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import TabBar from '../components/commons/TabBar';
-import EditMyInfoUl from '../components/myInfo/EditMyInfoUl';
+import { TabBar } from '../components/commons';
+import { EditMyInfoUl } from '../components/myInfo';
 
 function EditMyInfo() {
   return (

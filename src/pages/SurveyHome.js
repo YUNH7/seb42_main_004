@@ -1,8 +1,9 @@
-import styled from 'styled-components';
-import SurveyHomeArticle from '../components/survey/SurveyHomeArticle';
-import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import styled from 'styled-components';
+import { SurveyHomeArticle } from '../components/survey';
+
 function SurveyHome() {
   let { isLogin, admin } = useSelector((state) => state.authReducer);
   let navigate = useNavigate();

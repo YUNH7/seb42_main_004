@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import SignupCompleteDiv from '../components/signup/SignupCompleteDiv';
+import { SignupCompleteDiv } from '../components/signup';
 
 function SignupComplete() {
   return (

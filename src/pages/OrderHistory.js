@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import OrderHistoryPageButton from '../components/orderHistory/OrderHistoryPageButton';
-import OrderHistoryByDateDiv from '../components/orderHistory/OrderHistoryByDateDiv';
-import PaginationUl from '../components/commons/PaginationUl';
-import getData from '../util/getData';
 import { useSelector } from 'react-redux';
-import TabBar from '../components/commons/TabBar';
-import Empty from '../components/commons/Empty';
+import styled from 'styled-components';
+import { Empty, PaginationUl, TabBar } from '../components/commons';
+import {
+  OrderHistoryByDateDiv,
+  OrderHistoryPageButton,
+} from '../components/orderHistory';
+import { getData } from '../util';
+
 function OrderHistory() {
   let { admin } = useSelector((state) => state.authReducer);
-
   let [page, setPage] = useState(1);
   let [totalPages, setTotalPages] = useState(1);
   let [data, setData] = useState([]);
