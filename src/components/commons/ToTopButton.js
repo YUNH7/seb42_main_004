@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { VscTriangleUp } from '@react-icons/all-files/vsc/VscTriangleUp.esm';
-import { useHasFooter } from '../../hooks';
+import { useNoFooter } from '../../hooks';
 
 function ToTopButton() {
   const { path } = useLocation();
   const [scroll, setScroll] = useState(false);
-  const hasFooter = useHasFooter();
+  const noFooter = useNoFooter();
 
   const hasScroll = () => {
     setScroll(document.body.scrollHeight > window.innerHeight);
@@ -30,7 +30,7 @@ function ToTopButton() {
     <Button
       onClick={() => window.scrollTo(0, 0)}
       scroll={scroll && 1}
-      havefooter={hasFooter && 1}
+      hasBar={noFooter && 1}
     >
       <VscTriangleUp />
     </Button>
@@ -56,10 +56,10 @@ const Button = styled.button`
   }
 
   @media screen and (max-width: 768px) {
-    bottom: calc(${(props) => (props.havefooter ? '90px' : '0px')} + 0.8rem);
+    bottom: calc(${(props) => (props.hasBar ? '90px' : '0px')} + 0.8rem);
   }
 
   @media screen and (max-width: 480px) {
-    bottom: calc(${(props) => (props.havefooter ? '76px' : '0px')} + 1rem);
+    bottom: calc(${(props) => (props.hasBar ? '76px' : '0px')} + 1rem);
   }
 `;

@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 
-function useHasFooter() {
+function useNoFooter() {
   let { pathname } = useLocation();
 
   return (
@@ -10,4 +10,4 @@ function useHasFooter() {
   );
 }
 
-export default useHasFooter;
+export default useNoFooter;

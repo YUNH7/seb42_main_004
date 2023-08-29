@@ -6,7 +6,7 @@ import { Footer, Header, Loading, ToTopButton } from './components/commons';
 import { setProfile } from './reducers/userReducer';
 import { setAuth, setEmail } from './reducers/authReducer';
 import { getData, parseToken, setAuthorizationToken } from './util';
-import { useHasFooter, useInitialize } from './hooks';
+import { useNoFooter, useInitialize } from './hooks';
 import GlobalStyle from './global/globalstyles';
 
 const Cart = lazy(() => import('./pages/Cart'));
@@ -36,7 +36,7 @@ function App() {
   const { admin } = useSelector((state) => state.authReducer);
   const dispatch = useDispatch();
   const initialize = useInitialize();
-  const hasFooter = useHasFooter();
+  const noFooter = useNoFooter();
   const accessToken = localStorage.getItem('accessToken');
   const { pathname, search } = useLocation();
 
@@ -83,7 +83,7 @@ function App() {
       <Header />
       <BodyMargin
         className="marginbase"
-        height={hasFooter ? 1 : null}
+        height={noFooter ? 1 : null}
         pathname={pathname}
       >
         <Suspense fallback={<Loading />}>

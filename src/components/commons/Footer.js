@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import LogoWhite from '../../assets/logo_white.png';
-import { useHasFooter } from '../../hooks';
+import { useNoFooter } from '../../hooks';
 
 let fe = [
   {
@@ -40,10 +40,10 @@ let be = [
 
 function Footer() {
   // (모바일) 사용자/관리자 커스텀 페이지, 결제 페이지, 장바구니 -> X
-  const hasFooter = useHasFooter();
+  const noFooter = useNoFooter();
 
   return (
-    <FooterWrapper className="marginbase" isVisible={!hasFooter}>
+    <FooterWrapper className="marginbase" isVisible={!noFooter}>
       <FooterContent className="margininside">
         <LogoImg src={LogoWhite} alt="logo" />
         <LineHr />
@@ -79,7 +79,7 @@ export default Footer;
 const FooterWrapper = styled.footer`
   width: 100%;
   height: 280px;
-  background-color: var(--signature);
+  background-color: var(--signature) !important;
   color: var(--white);
   position: relative;
 

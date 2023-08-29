@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { HelmetTitle } from '../components/commons';
-import { useHasFooter } from '../hooks';
+import { useNoFooter } from '../hooks';
 
 function Error() {
-  const hasFooter = useHasFooter();
+  const noFooter = useNoFooter();
 
   return (
-    <ErrorBaseDiv className="margininside" fullh={hasFooter ? 1 : null}>
+    <ErrorBaseDiv className="margininside" fullh={noFooter ? 1 : null}>
       <HelmetTitle title="에러" />
       <ErrorWrapDiv>
         <h1 className="errorstyle">
