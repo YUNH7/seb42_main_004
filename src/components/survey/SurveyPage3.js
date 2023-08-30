@@ -20,16 +20,16 @@ let planDifficulty = {
 };
 
 function SurveyPage3() {
-  let dispatch = useDispatch();
-  let navigate = useNavigate();
-  let { state } = useLocation();
-  let { plan } = useSelector((state) => state.surveyQuestionReducer);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { state } = useLocation();
+  const { plan } = useSelector((state) => state.surveyQuestionReducer);
 
   // 다이어트 플랜 상태 변경
-  let dispatchPlan = (e) => dispatch(setPlan(e.target.id));
+  const dispatchPlan = (e) => dispatch(setPlan(e.target.id));
 
   // 설문 결과 get 요청 + 화면 전환
-  let nextHandler = () => {
+  const nextHandler = () => {
     getData(`/mealboxes/rec/survey?kcal=${state[plan].kcal}`).then((res) => {
       dispatch(setSurveyRcmd(res.data));
       dispatch(setReset());
@@ -37,7 +37,7 @@ function SurveyPage3() {
     });
   };
 
-  let optionItem = Object.entries(planDifficulty).map(
+  const optionItem = Object.entries(planDifficulty).map(
     ([difficulty, explanation]) => (
       <SurveyBox
         key={difficulty}

@@ -20,40 +20,36 @@ let explanation = {
 };
 
 function SurveyPage2({ name }) {
-  let dispatch = useDispatch();
-  let navigate = useNavigate();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // 활동량 상태 변경
-  let dispatchActive = (e) => {
-    dispatch(setActive(e.target.id));
-  };
+  const dispatchActive = (e) => dispatch(setActive(e.target.id));
 
   // 다이어트 플랜 get 요청 + 화면 전환
-  let { age, gender, height, weight, active } = useSelector(
+  const { age, gender, height, weight, active } = useSelector(
     (state) => state.surveyQuestionReducer
   );
 
-  let nextHandler = () => {
-    let page2Param = `?age=${age}&gender=${gender}&height=${height}&weight=${weight}&activityAmount=${active}`;
+  const nextHandler = () => {
+    const page2Param = `?age=${age}&gender=${gender}&height=${height}&weight=${weight}&activityAmount=${active}`;
     getData(`/survey${page2Param}`).then((res) => {
       navigate(`/survey/question/3`, { state: res.data });
     });
   };
 
-  let optionItem = Object.keys(explanation).map((act) => {
-    return (
-      <SurveyBox
-        key={act}
-        id={act}
-        title={explanation[act].active}
-        group="active"
-        changeHandler={dispatchActive}
-        checked={active === act}
-      >
-        <div>{explanation[act].detail}</div>
-      </SurveyBox>
-    );
-  });
+  const optionItem = Object.keys(explanation).map((act) => (
+    <SurveyBox
+      key={act}
+      id={act}
+      title={explanation[act].active}
+      group="active"
+      changeHandler={dispatchActive}
+      checked={active === act}
+    >
+      <div>{explanation[act].detail}</div>
+    </SurveyBox>
+  ));
 
   return (
     <article>
@@ -74,7 +70,6 @@ export const Option = styled.div`
     margin-bottom: 5px;
   }
 `;
-
 export const ExplanationDiv = styled.div`
   font-size: 1.1rem;
   margin-bottom: 10px;
