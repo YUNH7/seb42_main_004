@@ -9,16 +9,14 @@ import { useToCustom, useInitialize } from '../../hooks';
 import { logo_black as logo, profile } from '../../assets';
 
 function Header() {
-  const [isNav, setIsNav] = useState(false);
+  const [openNav, setOpenNav] = useState(false);
   const { isLogin, admin } = useSelector((state) => state.authReducer);
   const { imagePath, name } = useSelector((state) => state.userReducer);
   const navigate = useNavigate();
   const toCustom = useToCustom();
   const initialize = useInitialize();
 
-  const handleClick = () => {
-    setIsNav(!isNav);
-  };
+  const handleClick = () => setOpenNav(!openNav);
 
   const handleLogout = () => {
     if (confirm('정말 로그아웃하시겠습니까?')) {
@@ -60,54 +58,35 @@ function Header() {
               </button>
             </li>
           </MenuUl>
-          <IconsUl>
-            <li>
-              {isLogin ? (
-                <ProfileSpan>
-                  <button onClick={() => navigate('/myinfo')}>
-                    <Img src={imagePath || profile} alt="profile" />
-                  </button>
-                </ProfileSpan>
-              ) : null}
-            </li>
-            <li>
-              {isLogin ? (
-                <LogoutSpan>
-                  <MainButton handler={handleLogout} name="로그아웃" />
-                </LogoutSpan>
-              ) : (
-                <LoginSpan>
-                  <MainButton
-                    handler={() => navigate('/login')}
-                    name="로그인"
-                  />
-                </LoginSpan>
-              )}
-            </li>
-            <li>
-              {isLogin ? null : (
-                <SignupSpan>
-                  <MainButton
-                    handler={() => navigate('/signup')}
-                    name="회원가입"
-                  />
-                </SignupSpan>
-              )}
-            </li>
-            {!admin && (
-              <li>
-                <CartSpan>
-                  <button onClick={() => navigate('/cart')}>
-                    <FaShoppingCart size={25} />
-                    <CartCounter />
-                  </button>
-                </CartSpan>
-              </li>
+          <UserButtons>
+            {isLogin && (
+              <ToMyInfo onClick={() => navigate('/myinfo')}>
+                <Img src={imagePath || profile} alt="profile" />
+              </ToMyInfo>
             )}
-          </IconsUl>
+            <SignButtons>
+              <MainButton
+                handler={isLogin ? handleLogout : () => navigate('/login')}
+                name={isLogin ? '로그아웃' : '로그인'}
+                bgColor="var(--product_cocoa)"
+              />
+              {!isLogin && (
+                <MainButton
+                  handler={() => navigate('/signup')}
+                  name="회원가입"
+                />
+              )}
+            </SignButtons>
+            {!admin && (
+              <ToCart onClick={() => navigate('/cart')}>
+                <FaShoppingCart size={25} />
+                <CartCounter />
+              </ToCart>
+            )}
+          </UserButtons>
         </nav>
       </HeaderDiv>
-      {isNav ? (
+      {openNav ? (
         <Navbar
           isLogin={isLogin}
           name={name}
@@ -190,65 +169,37 @@ const MenuUl = styled.ul`
     display: none;
   }
 `;
-const IconsUl = styled.ul`
+const UserButtons = styled.div`
   display: flex;
-  flex-direction: row;
-  > li {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-  }
+  gap: 1rem;
 `;
-const ProfileSpan = styled.span`
+const ToMyInfo = styled.button`
   width: 50px;
   height: 100%;
-  margin-right: 1rem;
-  > button {
-    width: 100%;
-    height: 100%;
-    border: none;
-    background-color: transparent;
-  }
-  @media (max-width: 768px) {
-    display: none;
-  }
-`;
+  border: none;
+  background-color: transparent;
 
-const CartSpan = styled.span`
-  width: 50px;
-  height: 100%;
-  position: relative;
-  display: flex;
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+const SignButtons = styled(UserButtons)`
   align-items: center;
-  justify-content: center;
-  margin-left: 1rem;
-  > button {
-    width: 100%;
-    height: 100%;
-    border: none;
-    background-color: transparent;
-    > :last-child {
-      position: absolute;
-      top: 7px;
-      right: 6px;
-    }
-  }
-`;
-const LogoutSpan = styled.span`
+
   @media (max-width: 768px) {
     display: none;
   }
 `;
-const LoginSpan = styled.span`
-  margin-right: 1rem;
-  @media (max-width: 768px) {
-    display: none;
-  }
-`;
-const SignupSpan = styled.span`
-  @media (max-width: 768px) {
-    display: none;
+const ToCart = styled.button`
+  width: 50px;
+  position: relative;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  > :last-child {
+    position: absolute;
+    top: 7px;
+    right: 6px;
   }
 `;
 const Img = styled.img`
