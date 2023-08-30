@@ -16,30 +16,25 @@ function Header() {
   const toCustom = useToCustom();
   const initialize = useInitialize();
 
-  const handleClick = () => setOpenNav(!openNav);
-
-  const handleLogout = () => {
-    if (confirm('정말 로그아웃하시겠습니까?')) {
-      initialize();
-    } else {
-      return;
-    }
-  };
+  const toPath = (path) => () => navigate(path);
+  const handleLogout = () =>
+    confirm('정말 로그아웃하시겠습니까?') && initialize();
+  const handleNavBar = () => setOpenNav(!openNav);
 
   return (
     <ContainerHeader>
       <HeaderDiv className="marginbase shadow">
         <nav className="margininside">
           <MenuDiv>
-            <MenuIcon onClick={handleClick}>
+            <MenuIcon onClick={handleNavBar}>
               <HiOutlineMenu size={30} />
             </MenuIcon>
-            <LogoImg src={logo} alt="logo" onClick={() => navigate('/')} />
+            <LogoImg src={logo} alt="logo" onClick={toPath('/')} />
           </MenuDiv>
           <MenuUl>
             {!admin && (
               <li>
-                <button onClick={() => navigate('/survey/question/1')}>
+                <button onClick={toPath('/survey/question/1')}>
                   한끼밀 추천받기
                 </button>
               </li>
@@ -48,37 +43,30 @@ function Header() {
               <button onClick={toCustom}>커스텀 밀박스 만들기</button>
             </li>
             <li>
-              <button onClick={() => navigate('/mealboxes')}>
-                전체 상품 보기
-              </button>
+              <button onClick={toPath('/mealboxes')}>전체 상품 보기</button>
             </li>
             <li>
-              <button onClick={() => navigate('/products')}>
-                구성품 알아보기
-              </button>
+              <button onClick={toPath('/products')}>구성품 알아보기</button>
             </li>
           </MenuUl>
           <UserButtons>
             {isLogin && (
-              <ToMyInfo onClick={() => navigate('/myinfo')}>
+              <ToMyInfo onClick={toPath('/myinfo')}>
                 <Img src={imagePath || profile} alt="profile" />
               </ToMyInfo>
             )}
             <SignButtons>
               <MainButton
-                handler={isLogin ? handleLogout : () => navigate('/login')}
+                handler={isLogin ? handleLogout : toPath('/login')}
                 name={isLogin ? '로그아웃' : '로그인'}
                 bgColor="var(--product_cocoa)"
               />
               {!isLogin && (
-                <MainButton
-                  handler={() => navigate('/signup')}
-                  name="회원가입"
-                />
+                <MainButton handler={toPath('/signup')} name="회원가입" />
               )}
             </SignButtons>
             {!admin && (
-              <ToCart onClick={() => navigate('/cart')}>
+              <ToCart onClick={toPath('/cart')}>
                 <FaShoppingCart size={25} />
                 <CartCounter />
               </ToCart>
@@ -91,7 +79,7 @@ function Header() {
           isLogin={isLogin}
           name={name}
           imagePath={imagePath}
-          handleClick={handleClick}
+          handleClick={handleNavBar}
           handleLogout={handleLogout}
           navigate={navigate}
         />
