@@ -131,6 +131,5 @@ const ButtonDiv = styled.div`
 const AddressButton = styled.button`
   height: 30px;
   padding: 0px 10px;
-  border: none;
   background-color: var(--gray);
 `;

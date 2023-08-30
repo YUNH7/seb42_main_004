@@ -14,6 +14,5 @@ const Button = styled.button`
   padding: 0px 20px;
   height: 30px;
   color: var(--white);
-  border: none;
   background-color: var(--signature);
 `;

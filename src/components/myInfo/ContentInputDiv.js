@@ -82,7 +82,6 @@ const ContainerDiv = styled.div`
   > button {
     height: 60%;
     padding: 0px 10px;
-    border: none;
     background-color: var(--gray);
   }
 

@@ -122,9 +122,4 @@ const PasswordButtonDiv = styled.div`
   > * {
     margin-top: 1rem;
   }
-
-  button:last-child {
-    border: none;
-    background-color: transparent;
-  }
 `;

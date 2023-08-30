@@ -39,7 +39,6 @@ export const AsideWrapper = styled.aside`
 `;
 export const AsideSignatureButton = styled.button`
   width: 100%;
-  border: none;
   padding: 1rem 0;
   font-weight: bold;
   color: var(--white);

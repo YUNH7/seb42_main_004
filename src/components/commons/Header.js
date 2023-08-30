@@ -150,8 +150,6 @@ const MenuUl = styled.ul`
   button {
     width: 100%;
     height: 100%;
-    border: none;
-    background-color: transparent;
   }
   @media (max-width: 768px) {
     display: none;
@@ -164,8 +162,6 @@ const UserButtons = styled.div`
 const ToMyInfo = styled.button`
   width: 50px;
   height: 100%;
-  border: none;
-  background-color: transparent;
 
   @media (max-width: 768px) {
     display: none;
@@ -182,8 +178,7 @@ const ToCart = styled.button`
   width: 50px;
   position: relative;
   height: 100%;
-  border: none;
-  background-color: transparent;
+
   > :last-child {
     position: absolute;
     top: 7px;

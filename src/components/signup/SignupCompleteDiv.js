@@ -62,11 +62,6 @@ const ContentDiv = styled.div`
       :last-child {
         width: 60%;
         margin-top: 2rem;
-
-        > button:first-child {
-          border: none;
-          background-color: transparent;
-        }
       }
 
       @media (max-width: 480px) {

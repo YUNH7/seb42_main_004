@@ -137,8 +137,6 @@ const NavUl = styled.ul`
 
     button {
       width: 100%;
-      border: none;
-      background-color: transparent;
       font-size: 1.1rem;
     }
   }

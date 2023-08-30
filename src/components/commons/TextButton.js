@@ -30,8 +30,6 @@ const TextButton = ({
 export default TextButton;
 
 export const Button = styled.button`
-  border: none;
-  background: none;
   padding: ${(props) => props.padding || '4px'};
   margin: ${(props) => props.margin || ''};
   font-weight: ${(props) => props.fw || 'bold'};

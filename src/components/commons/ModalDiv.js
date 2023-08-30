@@ -223,8 +223,6 @@ const ModalCloseButton = styled.button`
   width: 3rem;
   height: 3rem;
   padding: 4px;
-  border: none;
-  background: none;
   font-size: 1.5rem;
   font-weight: normal;
 `;

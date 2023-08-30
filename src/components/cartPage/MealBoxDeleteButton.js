@@ -23,8 +23,6 @@ export default MealBoxDeleteButton;
 export const DeleteButton = styled.button`
   font-family: var(--f_hard);
   font-size: 1.2rem;
-  background-color: transparent;
-  border: none;
   height: fit-content;
   margin-right: 4px;
   white-space: nowrap;

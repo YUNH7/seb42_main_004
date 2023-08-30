@@ -213,8 +213,6 @@ const ButtonDiv = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    background-color: transparent;
-    border: none;
 
     &:hover {
       cursor: pointer;
