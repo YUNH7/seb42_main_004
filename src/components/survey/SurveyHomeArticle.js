@@ -16,7 +16,11 @@ function SurveyHomeArticle() {
       <BottomSection>
         <div>다이어트용 밀박스를</div>
         <div>추천받으시겠습니까?</div>
-        <MainButton name="추천받기" url="/survey/question/1" />
+        <MainButton
+          name="추천받기"
+          url="/survey/question/1"
+          bgColor="var(--product_cocoa)"
+        />
         <Link to="/mealboxes">건너뛰기</Link>
       </BottomSection>
     </Article>

@@ -1,13 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-const MainButton = ({ name, url, handler }) => {
+const MainButton = ({ name, url, handler, bgColor }) => {
   const navigate = useNavigate();
 
   return (
     <Button
       className="buttonstyle shadow"
-      name={name}
+      bgColor={bgColor}
       onClick={url ? () => navigate(`${url}`) : handler}
     >
       {name}
@@ -24,8 +24,5 @@ export const Button = styled.button`
   align-items: center;
   justify-content: center;
   border: none;
-  background-color: ${({ name }) =>
-    name.includes('로그') || name.includes('추천 받기')
-      ? `var(--product_cocoa)`
-      : `var(--bucket_brown)`};
+  background-color: ${({ bgColor }) => bgColor || `var(--bucket_brown)`};
 `;
