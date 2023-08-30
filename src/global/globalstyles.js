@@ -29,6 +29,10 @@ const GlobalStyle = createGlobalStyle`
     color: var(--black);
   }
 
+  a {
+    text-decoration: none;
+  }
+
   select {
     border: 1px solid var(--signature);
     color: var(--black);

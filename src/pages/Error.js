@@ -57,8 +57,4 @@ const ErrorWrapDiv = styled.div`
     font-weight: bold;
     text-align: center;
   }
-
-  > a {
-    text-decoration: none;
-  }
 `;

@@ -160,17 +160,11 @@ const Member = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 5px;
 
-  > div,
-  a {
+  > div {
     font-family: var(--f_hard);
-
-    :nth-child(2) {
-      margin-top: 30px;
-    }
-    :last-child {
-      margin-top: 5px;
-    }
+    margin-bottom: 25px;
 
     @media (max-width: 480px) {
       font-size: 1.2rem;
@@ -180,7 +174,7 @@ const Member = styled.div`
 
 const MemberInfo = styled.a`
   display: block;
-  text-decoration: none;
+  font-family: var(--f_hard);
   color: var(--white);
 
   @media (max-width: 768px) {

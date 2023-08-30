@@ -30,7 +30,6 @@ export const Button = styled.button`
 
   > a {
     width: 100%;
-    text-decoration: none;
     color: var(--black);
     font-family: inherit;
   }

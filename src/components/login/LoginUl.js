@@ -187,12 +187,12 @@ function LoginUl() {
         </li>
         <li>
           <Div>
-            <LoginLink to="/email/send" className="linkstyle">
+            <Link to="/email/send" className="linkstyle">
               비밀번호 찾기
-            </LoginLink>
-            <LoginLink to="/signup" className="linkstyle">
+            </Link>
+            <Link to="/signup" className="linkstyle">
               회원가입
-            </LoginLink>
+            </Link>
           </Div>
         </li>
         <li>
@@ -270,7 +270,4 @@ const Div = styled.div`
       color: var(--input_blue);
     }
   }
-`;
-const LoginLink = styled(Link)`
-  text-decoration: none;
 `;
