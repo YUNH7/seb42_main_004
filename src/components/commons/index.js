@@ -19,4 +19,5 @@ export { default as NoResultDiv } from './NoResultDiv';
 export { default as PaginationUl } from './PaginationUl';
 export { default as SearchBarDiv } from './SearchBarDiv';
 export { default as TabBar } from './TabBar';
+export { default as TabsInNav } from './TabsInNav';
 export { default as ToTopButton } from './ToTopButton';

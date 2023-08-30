@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import { BsFillPersonFill } from '@react-icons/all-files/bs/BsFillPersonFill.esm';
-import { IoIosArrowForward } from '@react-icons/all-files/io/IoIosArrowForward.esm';
-import { FiLogOut } from '@react-icons/all-files/fi/FiLogOut.esm';
-import { useToCustom } from '../../hooks';
+import { IoIosArrowForward as ArrowIcon } from '@react-icons/all-files/io/IoIosArrowForward.esm';
+import { FiLogOut as LogoutIcon } from '@react-icons/all-files/fi/FiLogOut.esm';
+import { TabsInNav } from '.';
 import { profile } from '../../assets';
 
 function Navbar({
@@ -11,61 +10,35 @@ function Navbar({
   imagePath,
   handleClick,
   handleLogout,
-  navigate,
+  toPath,
 }) {
-  const toCustom = useToCustom();
   return (
     <ModalContainerDiv onClick={handleClick}>
       <NavDiv onClick={(e) => e.stopPropagation()}>
-        <NavUl onClick={handleClick}>
-          {isLogin ? (
-            <li>
-              <Button onClick={() => navigate('/myinfo')}>
-                <Img src={imagePath || profile} alt="profile" />
-                <IdDiv>
-                  <Name>{name}</Name>님
-                </IdDiv>
-                <IoIosArrowForward size={15} />
-              </Button>
-            </li>
-          ) : (
-            <li>
-              <Button onClick={() => navigate('/login')}>
-                <BsFillPersonFill size={25} />
-                <IdDiv> 로그인 해주세요</IdDiv>
-                <IoIosArrowForward size={25} />
-              </Button>
-            </li>
-          )}
-          <li>
-            <button onClick={() => navigate('/survey/question/1')}>
-              한끼밀 추천받기
-            </button>
-          </li>
-          <li>
-            <button onClick={toCustom}>커스텀 밀박스 만들기</button>
-          </li>
-          <li>
-            <button onClick={() => navigate('/mealboxes')}>
-              전체 상품 보기
-            </button>
-          </li>
-          <li>
-            <button onClick={() => navigate('/products')}>
-              구성품 알아보기
-            </button>
-          </li>
-          {isLogin ? (
-            <li>
-              <Button onClick={handleLogout}>
-                <FiLogOut size={25} />
-                <IdDiv>로그아웃</IdDiv>
-              </Button>
-            </li>
-          ) : (
-            <li></li>
-          )}
-        </NavUl>
+        <AboutUser
+          height="50px"
+          onClick={toPath(isLogin ? '/myinfo' : '/login')}
+        >
+          <Img src={imagePath || profile} alt="profile_image" />
+          <UserText>
+            {isLogin ? (
+              <>
+                <Name>{name}</Name>님
+              </>
+            ) : (
+              '로그인 하러 가기'
+            )}
+          </UserText>
+          <ArrowIcon size={15} />
+        </AboutUser>
+        <hr />
+        <TabsInNav flexDirection="column" tabSize="80px" />
+        {isLogin && (
+          <AboutUser height="80px" onClick={handleLogout}>
+            <LogoutIcon size={25} />
+            <UserText>로그아웃</UserText>
+          </AboutUser>
+        )}
       </NavDiv>
     </ModalContainerDiv>
   );
@@ -76,35 +49,29 @@ export default Navbar;
 const ModalContainerDiv = styled.div`
   z-index: 34;
   position: fixed;
-  top: 0px;
-  left: 0px;
-  background-color: var(--gray_070);
+  top: 0;
+  left: 0;
   width: 100vw;
+  min-width: 360px;
   height: 100vh;
-
-  :hover {
-    cursor: pointer;
-  }
+  background-color: var(--gray_070);
 
   @media (min-width: 768px) {
     display: none;
   }
 `;
 const NavDiv = styled.div`
-  width: 50vw;
-  height: 100vh;
-  position: fixed;
-  z-index: 35;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  height: 100%;
   padding-top: 50px;
   background-color: var(--head_brown);
-  animation-name: nav;
+  animation-name: pop;
   animation-duration: 250ms;
 
-  @media (min-width: 768px) {
-    display: none;
-  }
-
-  @keyframes nav {
+  @keyframes pop {
     from {
       width: 30vw;
     }
@@ -112,54 +79,32 @@ const NavDiv = styled.div`
       width: 50vw;
     }
   }
-`;
-const NavUl = styled.ul`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
 
-  > li {
+  > hr {
+    border: none;
+    border-bottom: 1px solid var(--black);
     width: 100%;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-
-    &:first-child {
-      align-items: center;
-      flex-basis: 130px;
-      border-bottom: 1px solid var(--black);
-    }
-
-    &:last-child {
-      margin: 40px 0px;
-    }
-
-    button {
-      width: 100%;
-      font-size: 1.1rem;
-    }
   }
 `;
-const Button = styled.button`
-  width: 100%;
-  height: 100%;
+const AboutUser = styled.button`
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: ${(props) => props.height};
+  margin: 40px 0px;
 `;
-const IdDiv = styled.span`
-  padding: 0px 0.5rem;
+const Img = styled.img`
+  width: 30px;
+  height: 30px;
+`;
+const UserText = styled.span`
   font-family: var(--f_hard);
+  padding: 0px 0.5rem;
   font-size: 1.3rem;
 `;
 const Name = styled.span`
   font-family: var(--f_hard);
   margin-right: 0.2rem;
   font-size: 1.5rem;
-`;
-const Img = styled.img`
-  width: 30px;
-  height: 30px;
 `;
