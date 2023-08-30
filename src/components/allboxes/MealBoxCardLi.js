@@ -164,11 +164,12 @@ const MealBoxDesUl = styled.ul`
     opacity: 1;
   }
 `;
-const MealBoxDesLi = styled.h3`
+const MealBoxDesLi = styled.p`
   width: 100%;
   display: flex;
   justify-content: space-between;
   word-break: keep-all;
+  font-weight: bold;
 
   > span:first-child {
     flex: 1;
@@ -180,13 +181,10 @@ const MealBoxDesLi = styled.h3`
   }
 `;
 const MealBoxH3 = styled.h3`
-  flex: 1;
-  display: flex;
-  align-items: center;
-  font-size: 1.3rem;
+  text-align: ${(props) => props.center && 'center'};
   margin-top: 1rem;
   margin-bottom: 0.5rem;
-  justify-content: ${(props) => props.center && 'center'};
+  font-size: 1.3rem;
 `;
 const MealBoxCardButtonDiv = styled.div`
   position: relative;
