@@ -41,7 +41,7 @@ const ContainerDiv = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-family: var(--f_hard);
     color: ${({ validText }) =>
       validText ? `rgba(216, 75, 75,1)` : `var(--black)`};
 

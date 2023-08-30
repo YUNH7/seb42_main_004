@@ -37,7 +37,7 @@ const Count = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: 'IBM Plex Sans KR', sans-serif;
+  font-family: var(--f_hard);
   font-size: 0.8rem;
   font-weight: 900;
   color: var(--white);

@@ -61,7 +61,7 @@ const BoxTop = styled.div`
   margin-bottom: 10px;
 
   > h3 {
-    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-family: var(--f_hard);
     font-size: 1.4rem;
   }
 `;

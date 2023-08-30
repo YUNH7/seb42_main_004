@@ -39,7 +39,7 @@ const MealBoxItemBottemDiv = styled(CartItemBottomDiv)`
 
 const MealBoxCounter = styled.div`
   font-size: 1.2rem;
-  font-family: 'IBM Plex Sans KR', sans-serif;
+  font-family: var(--f_hard);
 `;
 
 const MealBoxInfo = styled.div`
@@ -48,6 +48,6 @@ const MealBoxInfo = styled.div`
   }
   > span:last-child {
     font-size: 1.2rem;
-    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-family: var(--f_hard);
   }
 `;

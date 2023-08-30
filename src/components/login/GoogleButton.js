@@ -134,7 +134,7 @@ const Button = styled.button`
 
   > div {
     margin-left: 0.5rem;
-    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-family: var(--f_hard);
     font-size: 1.2rem;
     color: var(--signature);
   }

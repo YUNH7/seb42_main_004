@@ -40,7 +40,7 @@ const ContentDiv = styled.div`
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      font-family: 'IBM Plex Sans KR', sans-serif;
+      font-family: var(--f_hard);
       font-size: 1.5rem;
       margin-top: 0.3rem;
 

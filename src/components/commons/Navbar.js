@@ -153,11 +153,11 @@ const Button = styled.button`
 `;
 const IdDiv = styled.span`
   padding: 0px 0.5rem;
-  font-family: 'IBM Plex Sans KR', sans-serif;
+  font-family: var(--f_hard);
   font-size: 1.3rem;
 `;
 const Name = styled.span`
-  font-family: 'IBM Plex Sans KR', sans-serif;
+  font-family: var(--f_hard);
   margin-right: 0.2rem;
   font-size: 1.5rem;
 `;

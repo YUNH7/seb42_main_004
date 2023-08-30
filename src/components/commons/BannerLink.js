@@ -22,7 +22,7 @@ const BannerContainerLink = styled(Link)`
   top: 50px;
   left: 0;
   background-color: var(--signature);
-  font-family: 'IBM Plex Sans KR', sans-serif;
+  font-family: var(--f_hard);
   font-size: 1.1rem;
   color: var(--white);
   text-decoration: none;

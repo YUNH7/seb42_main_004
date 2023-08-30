@@ -242,7 +242,7 @@ const LoginDiv = styled.div`
     height: 20px;
     margin-bottom: 0.5rem;
     font-size: 1.2rem;
-    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-family: var(--f_hard);
   }
 
   > input {

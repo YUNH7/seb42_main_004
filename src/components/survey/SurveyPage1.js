@@ -133,7 +133,7 @@ export const SurveyH3 = styled.h3`
   margin-bottom: 1rem;
   white-space: nowrap;
   font-size: 1.8rem;
-  font-family: 'IBM Plex Sans KR', sans-serif;
+  font-family: var(--f_hard);
 `;
 
 const SurveyContentDiv = styled.div`

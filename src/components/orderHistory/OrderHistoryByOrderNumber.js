@@ -120,7 +120,7 @@ const BottomMenuDiv = styled.div`
 
   > span:first-child {
     margin-right: 10px;
-    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-family: var(--f_hard);
 
     @media (max-width: 480px) {
       margin-right: 8px;
@@ -129,7 +129,7 @@ const BottomMenuDiv = styled.div`
 
   > span:last-child {
     font-size: 1.5rem;
-    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-family: var(--f_hard);
   }
 `;
 

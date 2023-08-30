@@ -6,7 +6,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-size: 13px;
-    font-family: 'Noto Serif KR', serif;
+    font-family: var(--f_basic);
     @media screen and (max-width: 480px) {
       font-size: 11px;
     }
@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
 
   h1 {
     font-size: 2rem !important;
-    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-family: var(--f_hard);
     font-weight: 500;
     margin-bottom: 1rem;
   }
@@ -52,7 +52,7 @@ const GlobalStyle = createGlobalStyle`
   }
   
   .buttonstyle {
-    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-family: var(--f_hard);
     font-size: 1.1rem !important;
     border-radius: 4px;
 
@@ -100,7 +100,9 @@ const GlobalStyle = createGlobalStyle`
     --white: rgba(255, 255, 255, 1);
     --white_020: rgba(255, 255, 255, 0.2);
     --red: rgba(216, 75, 75,1); 
-    --green: rgba(51,102,0,1)
+    --green: rgba(51,102,0,1);
+    --f_basic: 'Noto Serif KR', serif;
+    --f_hard: 'IBM Plex Sans KR', sans-serif;
   }
 `;
 

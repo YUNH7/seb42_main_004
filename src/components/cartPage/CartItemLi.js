@@ -63,7 +63,7 @@ export const CartItemTopDiv = styled.div`
 
   > h2 {
     color: var(--white);
-    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-family: var(--f_hard);
   }
 `;
 
@@ -88,7 +88,7 @@ const CartItemTopButtonsDiv = styled.div`
   justify-content: end;
 
   > div {
-    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-family: var(--f_hard);
     font-size: 1.2rem;
   }
 `;

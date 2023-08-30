@@ -37,9 +37,7 @@ export const Button = styled.button`
   font-weight: ${(props) => props.fw || 'bold'};
   font-size: ${(props) => props.fs || ''};
   font-family: ${(props) =>
-    props.font === 'basic'
-      ? "'Noto Serif KR', serif"
-      : "'IBM Plex Sans KR', sans-serif"};
+    props.font === 'basic' ? 'var(--f_basic)' : 'var(--f_hard)'};
   color: var(--black);
   :hover {
     color: ${(props) => !props.hoverNone && 'var(--input_blue)'};

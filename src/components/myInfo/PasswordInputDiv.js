@@ -41,7 +41,7 @@ const ContainerDiv = styled.div`
     justify-content: flex-end;
     align-items: center;
     margin-right: 1rem;
-    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-family: var(--f_hard);
   }
 `;
 const BottomDiv = styled.div`

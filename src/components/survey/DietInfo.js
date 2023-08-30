@@ -33,7 +33,7 @@ const DietInfoWrapper = styled.div`
 
 const Info = styled.div`
   > div:last-child {
-    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-family: var(--f_hard);
     font-weight: 900;
   }
 `;

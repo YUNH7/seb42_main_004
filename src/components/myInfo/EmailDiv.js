@@ -57,7 +57,7 @@ const TitleDiv = styled.div`
   margin-right: 1.5rem;
   display: flex;
   justify-content: flex-end;
-  font-family: 'IBM Plex Sans KR', sans-serif;
+  font-family: var(--f_hard);
 
   @media (max-width: 480px) {
     width: 80%;
@@ -76,7 +76,7 @@ const ConfirmSpan = styled.span`
   > span {
     padding-left: 0.2rem;
     color: var(--green);
-    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-family: var(--f_hard);
   }
 `;
 const OkIcon = styled(AiOutlineCheckCircle)`

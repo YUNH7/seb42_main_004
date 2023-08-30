@@ -163,7 +163,7 @@ const Member = styled.div`
 
   > div,
   a {
-    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-family: var(--f_hard);
 
     :nth-child(2) {
       margin-top: 30px;

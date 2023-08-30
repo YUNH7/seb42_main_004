@@ -21,7 +21,7 @@ function MealBoxDeleteButton({ cartMealboxId }) {
 export default MealBoxDeleteButton;
 
 export const DeleteButton = styled.button`
-  font-family: 'IBM Plex Sans KR', sans-serif;
+  font-family: var(--f_hard);
   font-size: 1.2rem;
   background-color: transparent;
   border: none;

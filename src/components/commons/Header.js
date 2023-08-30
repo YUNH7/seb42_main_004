@@ -129,7 +129,7 @@ const ContainerHeader = styled.header`
     list-style: none;
     > li > * {
       cursor: pointer;
-      font-family: 'IBM Plex Sans KR', sans-serif;
+      font-family: var(--f_hard);
     }
   }
 `;
