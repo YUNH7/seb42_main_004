@@ -1,14 +1,16 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const MainButton = ({ name, url, handler }) => {
+  const navigate = useNavigate();
+
   return (
     <Button
       className="buttonstyle shadow"
       name={name}
-      onClick={handler && handler}
+      onClick={url ? () => navigate(`${url}`) : handler}
     >
-      {url ? <Link to={url}>{name}</Link> : name}
+      {name}
     </Button>
   );
 };
@@ -22,15 +24,8 @@ export const Button = styled.button`
   align-items: center;
   justify-content: center;
   border: none;
-  cursor: pointer;
   background-color: ${({ name }) =>
     name.includes('로그') || name.includes('추천 받기')
       ? `var(--product_cocoa)`
       : `var(--bucket_brown)`};
-
-  > a {
-    width: 100%;
-    color: var(--black);
-    font-family: inherit;
-  }
 `;
