@@ -6,6 +6,19 @@ import { SurveyH3 } from './SurveyPage1';
 import { setActive } from '../../reducers/surveyQuestionReducer';
 import getData from '../../util/getData';
 
+let explanation = {
+  NOT_ACTIVE: { active: '비활동적', detail: '대부분 앉아있는 직장인 등' },
+  LOW_ACTIVE: { active: '저활동적', detail: '주 1~3회 가벼운 운동' },
+  NORMAL_ACTIVE: {
+    active: '활동적',
+    detail: '매일 30분 이상 자발적 운동',
+  },
+  HIGH_ACTIVE: {
+    active: '매우 활동적',
+    detail: '주로 선수, 거의 매일 2회 운동',
+  },
+};
+
 function SurveyPage2({ name }) {
   let dispatch = useDispatch();
   let navigate = useNavigate();
@@ -25,19 +38,6 @@ function SurveyPage2({ name }) {
     getData(`/survey${page2Param}`).then((res) => {
       navigate(`/survey/question/3`, { state: res.data });
     });
-  };
-
-  let explanation = {
-    NOT_ACTIVE: { active: '비활동적', detail: '대부분 앉아있는 직장인 등' },
-    LOW_ACTIVE: { active: '저활동적', detail: '주 1~3회 가벼운 운동' },
-    NORMAL_ACTIVE: {
-      active: '활동적',
-      detail: '매일 30분 이상 자발적 운동',
-    },
-    HIGH_ACTIVE: {
-      active: '매우 활동적',
-      detail: '주로 선수, 거의 매일 2회 운동',
-    },
   };
 
   let optionItem = Object.keys(explanation).map((act) => {
