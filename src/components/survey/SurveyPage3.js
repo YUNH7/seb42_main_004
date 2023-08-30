@@ -7,7 +7,7 @@ import { setSurveyRcmd } from '../../reducers/surveyRcmdReducer';
 import { setPlan, setReset } from '../../reducers/surveyQuestionReducer';
 import getData from '../../util/getData';
 
-let explanation = {
+let planDifficulty = {
   easy: [
     '다이어트는 너무 길어지면 힘들지만 무작정 빨리갈 수는 없어요.',
     '천천히 목표를 향해 나아가보아요.',
@@ -26,39 +26,34 @@ function SurveyPage3() {
   let { plan } = useSelector((state) => state.surveyQuestionReducer);
 
   // 다이어트 플랜 상태 변경
-  let dispatchPlan = (e) => {
-    dispatch(setPlan(e.target.id));
-  };
+  let dispatchPlan = (e) => dispatch(setPlan(e.target.id));
 
   // 설문 결과 get 요청 + 화면 전환
   let nextHandler = () => {
-    getData(`/mealboxes/rec/survey?kcal=${state[plan].kcal}`)
-      .then((res) => {
-        dispatch(setSurveyRcmd(res.data));
-      })
-      .then(() => {
-        dispatch(setReset());
-        navigate(`/survey/result`);
-      });
+    getData(`/mealboxes/rec/survey?kcal=${state[plan].kcal}`).then((res) => {
+      dispatch(setSurveyRcmd(res.data));
+      dispatch(setReset());
+      navigate(`/survey/result`);
+    });
   };
 
-  let optionItem = Object.keys(explanation).map((p) => {
-    return (
+  let optionItem = Object.entries(planDifficulty).map(
+    ([difficulty, explanation]) => (
       <SurveyBox
-        key={p}
-        id={p}
-        title={p.replace(/^[a-z]/, (char) => char.toUpperCase())}
+        key={difficulty}
+        id={difficulty}
+        title={difficulty.replace(/^[a-z]/, (char) => char.toUpperCase())}
         group="plan"
-        info={<DietInfo plan={state[p]} />}
+        info={<DietInfo plan={state[difficulty]} />}
         changeHandler={dispatchPlan}
-        checked={p === plan}
+        checked={difficulty === plan}
       >
-        {explanation[p].map((sentence, idx) => (
+        {explanation.map((sentence, idx) => (
           <div key={idx}>{sentence}</div>
         ))}
       </SurveyBox>
-    );
-  });
+    )
+  );
 
   return (
     <article>
