@@ -181,7 +181,10 @@ const MealBoxDesLi = styled.p`
   }
 `;
 const MealBoxH3 = styled.h3`
-  text-align: ${(props) => props.center && 'center'};
+  flex: 1;
+  display: flex;
+  justify-content: ${(props) => props.center && 'center'};
+  align-items: center;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
   font-size: 1.3rem;
