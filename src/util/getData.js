@@ -2,7 +2,7 @@ import axios from 'axios';
 
 async function getData(url) {
   try {
-    const response = await axios.get(`${process.env.REACT_APP_API_URL}${url}`, {
+    const response = await axios.get(`${import.meta.env.VITE_API_URL}${url}`, {
       withCredentials: true,
     });
     return response.data;
