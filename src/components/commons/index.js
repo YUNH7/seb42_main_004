@@ -16,7 +16,7 @@ export { default as MainButton } from './MainButton';
 export { default as ModalDiv } from './ModalDiv';
 export { default as Navbar } from './Navbar';
 export { default as NoResultDiv } from './NoResultDiv';
-export { default as PaginationUl } from './PaginationUl';
+export { default as Pagination } from './Pagination';
 export { default as SearchBarDiv } from './SearchBarDiv';
 export { default as TabBar } from './TabBar';
 export { default as TabsInNav } from './TabsInNav';

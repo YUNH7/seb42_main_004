@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-function PaginationUl({ page, totalpage, setPage }) {
+function Pagination({ page, totalpage, setPage }) {
   const count = totalpage < 5 ? totalpage : 5;
   const first = page < 4 ? 1 : totalpage - page < 3 ? totalpage - 4 : page - 2;
   const pages = new Array(count).fill(first).map((el, i) => el + i);
@@ -22,7 +22,7 @@ function PaginationUl({ page, totalpage, setPage }) {
   );
 }
 
-export default PaginationUl;
+export default Pagination;
 
 const Pages = styled.ul`
   list-style: none;

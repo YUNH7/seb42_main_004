@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { Empty, PaginationUl, TabBar } from '../components/commons';
+import { Empty, Pagination, TabBar } from '../components/commons';
 import {
   OrderHistoryByDateDiv,
   OrderHistoryPageButton,
@@ -74,7 +74,7 @@ function OrderHistory() {
                 );
               })}
               {admin && (
-                <PaginationUl
+                <Pagination
                   page={page}
                   totalpage={totalPages}
                   setPage={changePage}

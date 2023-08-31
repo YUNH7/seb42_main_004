@@ -6,7 +6,7 @@ import {
   GetTemplate,
   TextButton,
   NoResultDiv,
-  PaginationUl,
+  Pagination,
 } from '../components/commons';
 import { BoxElementCardLi, CustomAside } from '../components/custom';
 import { MealBoxesWrapDiv } from './AllBoxes';
@@ -81,7 +81,7 @@ function Custom() {
                   ))}
                 </BoxElementCardUl>
                 {!openCustom && (
-                  <PaginationUl
+                  <Pagination
                     page={res?.pageInfo?.page}
                     totalpage={res?.pageInfo?.totalPages}
                     setPage={setPage}

@@ -6,7 +6,7 @@ import {
   FilterSearchDiv,
   GetTemplate,
   NoResultDiv,
-  PaginationUl,
+  Pagination,
 } from '../components/commons';
 import { ProductLi } from '../components/product';
 import { MealBoxesUl, MealBoxesWrapDiv, SearchResultH3 } from './AllBoxes';
@@ -70,7 +70,7 @@ function Products() {
               />
             ))}
         </ProductsUl>
-        <PaginationUl
+        <Pagination
           page={res?.pageInfo?.page}
           totalpage={res?.pageInfo?.totalPages}
           setPage={setPage}
