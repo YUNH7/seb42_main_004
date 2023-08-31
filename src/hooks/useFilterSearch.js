@@ -58,10 +58,11 @@ function useFilterSearch(isMealBox, setPath) {
 
   const toSearchBarDiv = { searchSubject, searchWord, setSearchWord };
   const toFilterSearchDiv = { sortSubject, toSearchBarDiv };
-  const set = !setPath ? paginationUrl : setPage;
+  const changePage = (page) => () =>
+    !setPath ? navigate(paginationUrl(page)) : setPage(page);
   const uri = `${pathname}${search}`;
 
-  return [toFilterSearchDiv, notFoundWord, set, uri];
+  return [toFilterSearchDiv, notFoundWord, changePage, uri];
 }
 
 export default useFilterSearch;

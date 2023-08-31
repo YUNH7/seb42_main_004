@@ -13,8 +13,7 @@ import { useFilterSearch, useGET } from '../hooks';
 
 function AllBoxes() {
   const { user, admin } = useSelector((state) => state.authReducer);
-  const [toFilterSearchDiv, notFoundWord, paginationUrl, uri] =
-    useFilterSearch(true);
+  const [toFilterSearchDiv, notFoundWord, setPage, uri] = useFilterSearch(true);
   const [res, isPending, error, getData] = useGET(uri);
   const navigate = useNavigate();
 
@@ -63,7 +62,7 @@ function AllBoxes() {
         <PaginationUl
           page={res?.pageInfo?.page}
           totalpage={res?.pageInfo?.totalPages}
-          url={paginationUrl}
+          setPage={setPage}
         />
       </MealBoxesWrapDiv>
     </GetTemplate>

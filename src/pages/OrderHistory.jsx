@@ -9,17 +9,17 @@ import {
 import { getData } from '../util';
 
 function OrderHistory() {
-  let { admin } = useSelector((state) => state.authReducer);
-  let [page, setPage] = useState(1);
-  let [totalPages, setTotalPages] = useState(1);
-  let [data, setData] = useState([]);
-  let [date, setDate] = useState(
+  const { admin } = useSelector((state) => state.authReducer);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [data, setData] = useState([]);
+  const [date, setDate] = useState(
     new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000)
       .toISOString()
       .slice(0, 10)
   );
 
-  let render = () => {
+  const render = () => {
     getData(admin ? `/admin/orders?page=${page}&date=${date}` : `/orders/user`)
       .then((res) => {
         setTotalPages(res?.pageInfo?.totalPages);
@@ -43,13 +43,9 @@ function OrderHistory() {
   };
 
   // 관리자
-  let dateHandler = (e) => {
-    setDate(e.target.value);
-  };
-
-  let adminGetOrderHistory = () => {
-    page === 1 ? render() : setPage(1);
-  };
+  const dateHandler = (e) => setDate(e.target.value);
+  const adminGetOrderHistory = () => (page === 1 ? render() : setPage(1));
+  const changePage = (page) => () => setPage(page);
 
   useEffect(() => {
     render();
@@ -81,7 +77,7 @@ function OrderHistory() {
                 <PaginationUl
                   page={page}
                   totalpage={totalPages}
-                  setPage={setPage}
+                  setPage={changePage}
                 />
               )}
             </>

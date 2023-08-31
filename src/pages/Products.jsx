@@ -15,7 +15,7 @@ import { useFilterSearch, useGET } from '../hooks';
 function Products() {
   const { isLogin, admin } = useSelector((state) => state.authReducer);
   const [path, setPath] = useState(null);
-  const [toFilterSearchDiv, notFoundWord, paginationUrl, uri] =
+  const [toFilterSearchDiv, notFoundWord, setPage, uri] =
     useFilterSearch(false);
 
   const [res, isPending, error, getData] = useGET(path);
@@ -73,7 +73,7 @@ function Products() {
         <PaginationUl
           page={res?.pageInfo?.page}
           totalpage={res?.pageInfo?.totalPages}
-          url={paginationUrl}
+          setPage={setPage}
         />
       </MealBoxesWrapDiv>
     </GetTemplate>
