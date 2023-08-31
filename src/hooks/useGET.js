@@ -8,9 +8,7 @@ const useGET = (url) => {
 
   const getData = async () => {
     try {
-      const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}${url}`
-      );
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}${url}`);
       setRes(response.data);
       setIsPending(false);
     } catch (err) {

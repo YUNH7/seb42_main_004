@@ -3,7 +3,7 @@ import axios from 'axios';
 async function deleteData(url) {
   try {
     const response = await axios.delete(
-      `${process.env.REACT_APP_API_URL}${url}`,
+      `${import.meta.env.VITE_API_URL}${url}`,
       {
         withCredentials: true,
       }

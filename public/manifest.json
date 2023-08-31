@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Hankkimeal",
+  "name": "🥄한끼밀🥢",
+  "description": "당신의 건강을 위한 밀박스",
   "icons": [
     {
       "src": "favicon.ico",
