@@ -8,15 +8,21 @@ function Pagination({ page, totalpage, setPage }) {
   return (
     <Pages>
       {!pages.includes(1) && (
-        <PaginationLi onClick={setPage(1)}>{'<<'}</PaginationLi>
+        <li>
+          <PageButton onClick={setPage(1)}>{'<<'}</PageButton>
+        </li>
       )}
       {pages.map((li, i) => (
-        <PaginationLi key={i} nowPage={li === page && 1} onClick={setPage(li)}>
-          {li}
-        </PaginationLi>
+        <li key={i}>
+          <PageButton nowPage={li === page && 1} onClick={setPage(li)}>
+            {li}
+          </PageButton>
+        </li>
       ))}
       {!pages.includes(totalpage) && (
-        <PaginationLi onClick={setPage(totalpage)}>{'>>'}</PaginationLi>
+        <li>
+          <PageButton onClick={setPage(totalpage)}>{'>>'}</PageButton>
+        </li>
       )}
     </Pages>
   );
@@ -27,16 +33,16 @@ export default Pagination;
 const Pages = styled.ul`
   list-style: none;
   display: flex;
-  margin: 2rem -0.5rem 0;
+  margin-top: 2rem;
   align-self: end;
+  gap: 0.5rem;
 
   @media screen and (max-width: 480px) {
     align-self: center;
   }
 `;
-const PaginationLi = styled.li`
+const PageButton = styled.button`
   cursor: pointer;
-  font-size: 0.8rem;
   font-weight: ${(props) => props.nowPage && 'bold'};
   text-align: center;
   color: var(${(props) => (props.nowPage ? '--white' : '--black')});
@@ -45,7 +51,6 @@ const PaginationLi = styled.li`
   );
   border-radius: 4px;
   padding: 0.4rem;
-  margin-right: 0.5rem;
   min-width: 1.5rem;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
 `;
