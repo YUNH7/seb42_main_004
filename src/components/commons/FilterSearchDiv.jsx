@@ -1,19 +1,13 @@
-import styled from 'styled-components';
 import { FilterSelect, SearchBarDiv } from '.';
+import { Flex } from '../styled';
 
 function FilterSearchDiv({ sortSubject, placeholder, toSearchBarDiv }) {
   return (
-    <FilterSearchWrapDiv>
+    <Flex justifyContent="space-between" alignItems="center">
       <FilterSelect sortSubject={sortSubject} />
       <SearchBarDiv placeholder={placeholder} {...toSearchBarDiv} />
-    </FilterSearchWrapDiv>
+    </Flex>
   );
 }
 
 export default FilterSearchDiv;
-
-const FilterSearchWrapDiv = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
