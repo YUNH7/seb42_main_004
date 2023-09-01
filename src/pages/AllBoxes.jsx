@@ -8,7 +8,7 @@ import {
   NoResultDiv,
   Pagination,
 } from '../components/commons';
-import { MealBoxCardLi } from '../components/allboxes';
+import { BoxCards } from '../components/allboxes';
 import { useFilterSearch, useGET } from '../hooks';
 
 function AllBoxes() {
@@ -47,18 +47,7 @@ function AllBoxes() {
             replaceWord={'고단백질 아침 세트'}
           />
         )}
-        <MealBoxesUl>
-          {((uri.includes('?page=1&') && !uri.includes('search')) ||
-            res.data?.length === 0) && <MealBoxCardLi />}
-          {res.data?.length !== 0 &&
-            res.data?.map((mealbox) => (
-              <MealBoxCardLi
-                key={mealbox.mealboxId}
-                mealBox={mealbox}
-                reload={getData}
-              />
-            ))}
-        </MealBoxesUl>
+        <BoxCards uri={uri} data={res.data} getData={getData} />
         <Pagination
           page={res?.pageInfo?.page}
           totalpage={res?.pageInfo?.totalPages}
@@ -76,22 +65,4 @@ export const MealBoxesWrapDiv = styled.div`
 `;
 export const SearchResultH3 = styled.h3`
   margin-bottom: 0.5rem;
-`;
-export const MealBoxesUl = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  row-gap: 3rem;
-  column-gap: 4vw;
-  width: 100%;
-  list-style: none;
-
-  @media screen and (max-width: 768px) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    row-gap: 2.5rem;
-  }
-
-  @media screen and (max-width: 480px) {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-    row-gap: 2rem;
-  }
 `;

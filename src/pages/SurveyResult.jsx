@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { HelmetTitle, TextButton } from '../components/commons';
-import { MealBoxCardLi } from '../components/allboxes';
-import { MealBoxesWrapDiv, MealBoxesUl } from './AllBoxes';
+import { Cards, MealBoxCardLi } from '../components/allboxes';
+import { MealBoxesWrapDiv } from './AllBoxes';
 import { deleteSurveyRcmd } from '../reducers/surveyRcmdReducer';
 
 function SurveyResult() {
@@ -31,11 +31,11 @@ function SurveyResult() {
     <MealBoxesWrapDiv className="margininside">
       <HelmetTitle title="추천 결과 페이지" />
       <h1>추천 결과 페이지(｡•̀ᴗ-)✧</h1>
-      <MealBoxesUl>
+      <Cards>
         <MealBoxCardLi title="아침" mealBox={surveyRcmd.breakfast} />
         <MealBoxCardLi title="점심" mealBox={surveyRcmd.lunch} />
         <MealBoxCardLi title="저녁" mealBox={surveyRcmd.dinner} />
-      </MealBoxesUl>
+      </Cards>
       <SurveyRetryDiv>
         <TextButton
           inButton="다시 추천 받기"

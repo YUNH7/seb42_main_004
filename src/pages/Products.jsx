@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
 import {
   FilterSearchDiv,
   GetTemplate,
   NoResultDiv,
   Pagination,
 } from '../components/commons';
-import { ProductLi } from '../components/product';
-import { MealBoxesUl, MealBoxesWrapDiv, SearchResultH3 } from './AllBoxes';
+import { MealBoxesWrapDiv, SearchResultH3 } from './AllBoxes';
+import { ProductCards } from '../components/product';
 import { useFilterSearch, useGET } from '../hooks';
 
 function Products() {
@@ -54,22 +53,12 @@ function Products() {
             replaceWord={'단백질쉐이크'}
           />
         )}
-        <ProductsUl>
-          {admin &&
-            ((uri.includes('?page=1&') && !uri.includes('search')) ||
-              res.data?.length === 0) && (
-              <ProductLi admin={admin} reload={getData} />
-            )}
-          {res.data?.length !== 0 &&
-            res.data?.map((product) => (
-              <ProductLi
-                key={product.productId}
-                product={product}
-                admin={admin}
-                reload={getData}
-              />
-            ))}
-        </ProductsUl>
+        <ProductCards
+          admin={admin}
+          uri={uri}
+          data={res.data}
+          getData={getData}
+        />
         <Pagination
           page={res?.pageInfo?.page}
           totalpage={res?.pageInfo?.totalPages}
@@ -81,16 +70,3 @@ function Products() {
 }
 
 export default Products;
-
-const ProductsUl = styled(MealBoxesUl)`
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  column-gap: 2vw;
-
-  @media screen and (max-width: 768px) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  @media screen and (max-width: 480px) {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-  }
-`;
