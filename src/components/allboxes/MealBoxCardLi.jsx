@@ -158,7 +158,6 @@ const MealBoxDesUl = styled.ul`
   justify-content: center;
   padding: 5%;
   opacity: 0;
-  list-style: none;
 
   :hover {
     opacity: 1;

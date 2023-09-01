@@ -150,7 +150,6 @@ const ContainerUl = styled.ul`
   flex-direction: column;
   justify-content: center;
   padding: 0;
-  list-style: none;
 
   > li {
     margin-bottom: 0.8rem;

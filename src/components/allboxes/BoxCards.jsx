@@ -29,7 +29,6 @@ export const Cards = styled.ul`
   row-gap: 3rem;
   column-gap: 4vw;
   width: 100%;
-  list-style: none;
 
   @media screen and (max-width: 768px) {
     grid-template-columns: repeat(2, minmax(0, 1fr));

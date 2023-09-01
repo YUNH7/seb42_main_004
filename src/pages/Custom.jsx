@@ -131,6 +131,5 @@ const ElementsContainerDiv = styled.div`
   }
 `;
 const BoxElementCardUl = styled.ul`
-  list-style: none;
   margin-bottom: -10px;
 `;

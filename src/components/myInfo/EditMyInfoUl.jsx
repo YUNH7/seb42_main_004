@@ -226,7 +226,6 @@ export default EditMyInfoUl;
 const ContainerUl = styled.ul`
   min-width: 80%;
   padding: 0;
-  list-style: none;
 
   @media (max-width: 768px) {
     width: 90%;

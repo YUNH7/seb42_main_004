@@ -34,6 +34,10 @@ const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
   }
+  
+  ol, ul, li {
+    list-style: none;
+  }
 
   select {
     border: 1px solid var(--signature);

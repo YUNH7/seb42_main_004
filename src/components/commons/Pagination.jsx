@@ -31,7 +31,6 @@ function Pagination({ page, totalpage, setPage }) {
 export default Pagination;
 
 const Pages = styled.ul`
-  list-style: none;
   display: flex;
   margin-top: 2rem;
   align-self: end;

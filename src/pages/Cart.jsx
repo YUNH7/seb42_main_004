@@ -115,7 +115,6 @@ export const CartItemListUl = styled.ul`
 
   > li {
     margin-bottom: 10px;
-    list-style: none;
   }
 
   @media (max-width: 768px) {

@@ -35,7 +35,6 @@ const Main = styled.main`
   justify-content: center;
 `;
 const Ul = styled.ul`
-  list-style: none;
   display: flex;
   justify-content: flex-end;
 

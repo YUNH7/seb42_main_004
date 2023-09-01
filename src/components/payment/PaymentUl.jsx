@@ -50,7 +50,6 @@ export default PaymentUl;
 const ContainerUl = styled.ul`
   min-width: 50%;
   padding: 0;
-  list-style: none;
 
   @media (max-width: 768px) {
     width: 100%;
