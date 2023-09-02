@@ -8,24 +8,21 @@ import { setCart } from '../reducers/cartReducer';
 import { getData, postData } from '../util';
 
 function Cart() {
-  let navigate = useNavigate();
-  let dispatch = useDispatch();
-  let { isLogin } = useSelector((state) => state.authReducer);
-  let { totalPrice, mealboxes } = useSelector(
+  const { isLogin } = useSelector((state) => state.authReducer);
+  const { totalPrice, mealboxes } = useSelector(
     (state) => state.cartReducer.cart
   ) || { totalPrice: 0, mealboxes: [] };
-  let [renderPrice, setRenderPrice] = useState(totalPrice);
+  const [renderPrice, setRenderPrice] = useState(totalPrice);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  let calcRenderPrice = () => {
-    let checkedItem = document.querySelectorAll(
+  const calcRenderPrice = () => {
+    const checkedItem = document.querySelectorAll(
       'input[type="checkbox"]:checked'
     );
+    const checkedCartMealBoxId = [...checkedItem].map((el) => String(el.id));
 
-    let checkedCartMealBoxId = Array.from(checkedItem).map((el) =>
-      String(el.id)
-    );
-
-    let checkedPrice = mealboxes?.reduce((acc, cur) => {
+    const checkedPrice = mealboxes?.reduce((acc, cur) => {
       return checkedCartMealBoxId.includes(String(cur.cartMealboxId))
         ? acc + cur.price * cur.quantity
         : acc;
@@ -34,23 +31,18 @@ function Cart() {
     setRenderPrice(checkedPrice);
   };
 
-  let purchaseHandler = () => {
-    if (!isLogin) {
-      return navigate('/login');
-    }
+  const purchaseHandler = () => {
+    if (!isLogin) return navigate('/login');
 
-    let checkedItem = document.querySelectorAll(
+    const checkedItem = document.querySelectorAll(
       'input[type="checkbox"]:checked'
     );
+    const checkedCartMealBoxId = [...checkedItem].map((el) => String(el.id));
 
-    let checkedCartMealBoxId = Array.from(checkedItem).map((el) =>
-      String(el.id)
-    );
-
-    let postReqData = mealboxes
+    const postReqData = mealboxes
       .filter((el) => checkedCartMealBoxId.includes(String(el.cartMealboxId)))
       .map((el) => {
-        let { cartMealboxId, mealboxId, quantity } = el;
+        const { cartMealboxId, mealboxId, quantity } = el;
         return { cartMealboxId, mealboxId, quantity };
       });
 
