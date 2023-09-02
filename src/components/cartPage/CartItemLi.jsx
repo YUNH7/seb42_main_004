@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import {
   MealBoxCounterDiv,
@@ -7,28 +6,25 @@ import {
   MealBoxItemsDiv,
 } from '.';
 
-function CartItemLi({ mealbox, value, calcRenderPrice }) {
-  let { name, kcal, price, quantity, products } = mealbox;
-  let [isChecked, setIsChecked] = useState(true);
-
-  let IsCheckedHandler = () => {
-    setIsChecked(!isChecked);
-    calcRenderPrice();
-  };
+function CartItemLi({ mealbox, checkBox, isChecked }) {
+  const { name, kcal, price, quantity, products, cartMealboxId } = mealbox;
 
   return (
     <CartItemWrapperLi className="shadow">
       <CartItemTopDiv>
         <CheckBoxInput
-          id={value}
+          aria-label={isChecked ? '체크표시됨' : '체크되지않음'}
           type="checkbox"
-          onChange={IsCheckedHandler}
+          onChange={checkBox}
           checked={isChecked}
         />
         <h2>{name}</h2>
         <CartItemTopButtonsDiv>
-          <MealBoxDeleteButton cartMealboxId={value} />
-          <MealBoxCounterDiv cartMealboxId={value} quantity={quantity} />
+          <MealBoxDeleteButton cartMealboxId={cartMealboxId} />
+          <MealBoxCounterDiv
+            cartMealboxId={cartMealboxId}
+            quantity={quantity}
+          />
         </CartItemTopButtonsDiv>
       </CartItemTopDiv>
       <CartItemBottomDiv>
@@ -36,7 +32,7 @@ function CartItemLi({ mealbox, value, calcRenderPrice }) {
         <CartItemBottomButtonsDiv>
           <div>{kcal.toLocaleString()}kcal</div>
           <div>{price.toLocaleString()}원</div>
-          <MealBoxEditButton cartMealboxId={value} />
+          <MealBoxEditButton cartMealboxId={cartMealboxId} />
         </CartItemBottomButtonsDiv>
       </CartItemBottomDiv>
     </CartItemWrapperLi>

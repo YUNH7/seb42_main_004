@@ -10,40 +10,39 @@ import { getData, postData } from '../util';
 
 function Cart() {
   const { isLogin } = useSelector((state) => state.authReducer);
-  const { totalPrice, mealboxes } = useSelector(
-    (state) => state.cartReducer.cart
-  ) || { totalPrice: 0, mealboxes: [] };
-  const [renderPrice, setRenderPrice] = useState(totalPrice);
+  const { mealboxes } = useSelector((state) => state.cartReducer.cart);
+  const [checkedBoxes, setCheckedBoxes] = useState(
+    mealboxes.map((box) => box.cartMealboxId)
+  );
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const calcRenderPrice = () => {
-    const checkedItem = document.querySelectorAll(
-      'input[type="checkbox"]:checked'
-    );
-    const checkedCartMealBoxId = [...checkedItem].map((el) => String(el.id));
+  const checkedBoxesPrice = mealboxes.reduce(
+    (price, box) =>
+      checkedBoxes.includes(box.cartMealboxId)
+        ? price + box.price * box.quantity
+        : price,
+    0
+  );
 
-    const checkedPrice = mealboxes?.reduce((acc, cur) => {
-      return checkedCartMealBoxId.includes(String(cur.cartMealboxId))
-        ? acc + cur.price * cur.quantity
-        : acc;
-    }, 0);
-
-    setRenderPrice(checkedPrice);
+  const checkBox = (id) => () => {
+    const targetIdx = checkedBoxes.indexOf(id);
+    const boxesToChange =
+      targetIdx === -1
+        ? [...checkedBoxes, id]
+        : checkedBoxes.toSpliced(targetIdx, 1);
+    setCheckedBoxes(boxesToChange);
   };
 
-  const purchaseHandler = () => {
+  const checkedBox = (id) => checkedBoxes.includes(id);
+
+  const getOrderId = () => {
     if (!isLogin) return navigate('/login');
 
-    const checkedItem = document.querySelectorAll(
-      'input[type="checkbox"]:checked'
-    );
-    const checkedCartMealBoxId = [...checkedItem].map((el) => String(el.id));
-
     const postReqData = mealboxes
-      .filter((el) => checkedCartMealBoxId.includes(String(el.cartMealboxId)))
-      .map((el) => {
-        const { cartMealboxId, mealboxId, quantity } = el;
+      .filter((box) => checkedBoxes.includes(box.cartMealboxId))
+      .map((box) => {
+        const { cartMealboxId, mealboxId, quantity } = box;
         return { cartMealboxId, mealboxId, quantity };
       });
 
@@ -51,14 +50,10 @@ function Cart() {
       if (res.status === 403) {
         navigate('/email/request');
       } else {
-        navigate(res.data, { state: checkedCartMealBoxId });
+        navigate(res.data, { state: checkedBoxes });
       }
     });
   };
-
-  useEffect(() => {
-    calcRenderPrice();
-  }, [mealboxes]);
 
   useEffect(() => {
     isLogin &&
@@ -70,19 +65,19 @@ function Cart() {
   return (
     <CartPageWrapper className="margininside">
       <h1>장바구니</h1>
-      {totalPrice ? (
+      {mealboxes.length ? (
         <CartPageContent>
           <CartItemListUl>
             {mealboxes?.map((el) => (
               <CartItemLi
                 key={el.cartMealboxId}
                 mealbox={el}
-                value={el.cartMealboxId}
-                calcRenderPrice={calcRenderPrice}
+                checkBox={checkBox(el.cartMealboxId)}
+                isChecked={checkedBox(el.cartMealboxId)}
               />
             ))}
           </CartItemListUl>
-          <CartAside totalPrice={renderPrice} buttonClick={purchaseHandler} />
+          <CartAside totalPrice={checkedBoxesPrice} buttonClick={getOrderId} />
         </CartPageContent>
       ) : (
         <NoContent icon={<CartIcon />} message="장바구니가 비었습니다." />
