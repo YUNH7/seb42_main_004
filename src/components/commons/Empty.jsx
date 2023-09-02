@@ -1,19 +1,10 @@
-import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import { FaShoppingBasket } from '@react-icons/all-files/fa/FaShoppingBasket.esm';
-import { GoNote } from '@react-icons/all-files/go/GoNote.esm';
 
-function Empty() {
-  let { pathname } = useLocation();
-
+function Empty({ icon, message }) {
   return (
     <CartEmptyDiv>
-      {pathname === '/cart' ? <FaShoppingBasket /> : <GoNote />}
-      <Text>
-        {pathname === '/cart'
-          ? '장바구니가 비었습니다.'
-          : '주문내역이 없습니다.'}
-      </Text>
+      {icon}
+      <Text>{message}</Text>
     </CartEmptyDiv>
   );
 }
@@ -21,21 +12,21 @@ function Empty() {
 export default Empty;
 
 const CartEmptyDiv = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  gap: 10px;
+  height: 100%;
 
   svg {
-    width: 200px;
-    height: 200px;
+    width: 10rem;
+    height: 10rem;
+    fill: var(--signature);
   }
 `;
 
 const Text = styled.div`
-  font-size: large;
-  margin-top: 10px;
+  font-size: 1.5rem;
+  font-family: var(--f_hard);
 `;

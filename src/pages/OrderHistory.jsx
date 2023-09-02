@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { GoNote as NoteIcon } from '@react-icons/all-files/go/GoNote.esm';
 import { Empty, Pagination, TabBar } from '../components/commons';
 import {
   OrderHistoryByDateDiv,
@@ -65,7 +66,7 @@ function OrderHistory() {
             </ManagerMenuDiv>
           )}
           {!data.length ? (
-            <Empty />
+            <Empty icon={<NoteIcon />} message="주문내역이 없습니다." />
           ) : (
             <>
               {data?.map((el) => {
