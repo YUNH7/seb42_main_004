@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 
-function Empty({ icon, message }) {
+function NoContent({ icon, message }) {
   return (
-    <CartEmptyDiv>
+    <Empty>
       {icon}
       <Text>{message}</Text>
-    </CartEmptyDiv>
+    </Empty>
   );
 }
 
-export default Empty;
+export default NoContent;
 
-const CartEmptyDiv = styled.div`
+const Empty = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;

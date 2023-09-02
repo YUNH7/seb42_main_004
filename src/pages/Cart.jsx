@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { FaShoppingBasket as CartIcon } from '@react-icons/all-files/fa/FaShoppingBasket.esm';
-import { CartAside, Empty } from '../components/commons';
+import { CartAside, NoContent } from '../components/commons';
 import { CartItemLi } from '../components/cartPage';
 import { setCart } from '../reducers/cartReducer';
 import { getData, postData } from '../util';
@@ -85,7 +85,7 @@ function Cart() {
           <CartAside totalPrice={renderPrice} buttonClick={purchaseHandler} />
         </CartPageContent>
       ) : (
-        <Empty icon={<CartIcon />} message="장바구니가 비었습니다." />
+        <NoContent icon={<CartIcon />} message="장바구니가 비었습니다." />
       )}
     </CartPageWrapper>
   );
