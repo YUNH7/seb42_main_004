@@ -2,9 +2,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { FaShoppingCart as CartIcon } from '@react-icons/all-files/fa/FaShoppingCart.esm';
 import { HiOutlineMenu as HamburgerIcon } from '@react-icons/all-files/hi/HiOutlineMenu.esm';
-import { CartCounter, MainButton, Navbar, TabsInNav } from '.';
+import { MainButton, Navbar, TabsInNav, ToCart } from '.';
 import { useInitialize } from '../../hooks';
 import { logo_black as logo, profile } from '../../assets';
 
@@ -47,12 +46,7 @@ function Header() {
                 <MainButton handler={toPath('/signup')} name="회원가입" />
               )}
             </SignButtons>
-            {!admin && (
-              <ToCart onClick={toPath('/cart')}>
-                <CartIcon size={25} />
-                <CartCounter />
-              </ToCart>
-            )}
+            {!admin && <ToCart />}
           </UserButtons>
         </div>
       </Wrapper>
@@ -115,16 +109,5 @@ const SignButtons = styled(UserButtons)`
 
   @media (max-width: 768px) {
     display: none;
-  }
-`;
-const ToCart = styled.button`
-  position: relative;
-  width: 50px;
-  height: 100%;
-
-  > :last-child {
-    position: absolute;
-    top: 7px;
-    right: 6px;
   }
 `;
