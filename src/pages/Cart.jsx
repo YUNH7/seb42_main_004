@@ -1,12 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { FaShoppingBasket as CartIcon } from '@react-icons/all-files/fa/FaShoppingBasket.esm';
 import { CartAside, NoContent } from '../components/commons';
 import { CartItemLi } from '../components/cartPage';
-import { setCart } from '../reducers/cartReducer';
-import { getData, postData } from '../util';
+import { postData } from '../util';
 
 function Cart() {
   const { isLogin } = useSelector((state) => state.authReducer);
@@ -15,7 +14,6 @@ function Cart() {
     mealboxes.map((box) => box.cartMealboxId)
   );
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const checkedBoxesPrice = mealboxes.reduce(
     (price, box) =>
@@ -54,13 +52,6 @@ function Cart() {
       }
     });
   };
-
-  useEffect(() => {
-    isLogin &&
-      getData('/users/cart').then((res) => {
-        dispatch(setCart(res.data));
-      });
-  }, []);
 
   return (
     <CartPageWrapper className="margininside">
