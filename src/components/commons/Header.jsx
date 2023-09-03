@@ -23,7 +23,7 @@ function Header() {
     <>
       <Wrapper className="marginbase shadow">
         <div className="margininside">
-          <button onClick={handleNavBar}>
+          <button aria-label="Nav Bar" onClick={handleNavBar}>
             <MenuIcon size={30} />
           </button>
           <button onClick={toPath('/')}>
