@@ -12,8 +12,11 @@ import { useFilterSearch, useGET } from '../hooks';
 
 function Products() {
   const { admin } = useSelector((state) => state.authReducer);
-  const [toFilterSearchDiv, notFoundWord, setPage, uri] =
-    useFilterSearch(false);
+  const [toFilterSearchDiv, notFoundWord, setPage, uri] = useFilterSearch(
+    '',
+    '/products/search',
+    '/products'
+  );
 
   const [res, isPending, error, getData] = useGET(uri);
   const navigate = useNavigate();

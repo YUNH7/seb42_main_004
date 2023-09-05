@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-function useFilterSearch(isMealBox, setPath) {
+function useFilterSearch(setPath, searchPath, sortPath) {
   const navigate = useNavigate();
 
   const [searchWord, setSearchWord] = useState('');
@@ -21,15 +21,9 @@ function useFilterSearch(isMealBox, setPath) {
 
   const paginationUrl = (page) => {
     setNotFoundWord(searchWord);
-    if (isMealBox) {
-      return searchWord
-        ? `/mealboxes/search/detail?page=${page}&name=${searchWord}`
-        : `/mealboxes?page=${page}&sort=${sortBy[0]}&dir=${sortBy[1]}`;
-    } else {
-      return searchWord
-        ? `/products/search?page=${page}&name=${searchWord}`
-        : `/products?page=${page}&sort=${sortBy[0]}&dir=${sortBy[1]}`;
-    }
+    return searchWord
+      ? `${searchPath}?page=${page}&name=${searchWord}`
+      : `${sortPath}?page=${page}&sort=${sortBy[0]}&dir=${sortBy[1]}`;
   };
 
   const sortSubject = (select) => {

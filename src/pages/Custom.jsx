@@ -20,8 +20,9 @@ function Custom() {
   const [res, isPending, error] = useGET(path);
   const [showSelected, setShowSelected] = useState(false);
   const [toFilterSearchDiv, notFoundWord, setPage] = useFilterSearch(
-    false,
-    setPath
+    setPath,
+    '/products/search',
+    '/products'
   );
   const dispatch = useDispatch();
 
