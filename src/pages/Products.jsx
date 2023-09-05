@@ -8,17 +8,21 @@ import {
 } from '../components/commons';
 import { MealBoxesWrapDiv, SearchResultH3 } from './AllBoxes';
 import { ProductCards } from '../components/product';
-import { useFilterSearch, useGET } from '../hooks';
+import { useFilterSearch } from '../hooks';
 
 function Products() {
   const { admin } = useSelector((state) => state.authReducer);
-  const [toFilterSearchDiv, notFoundWord, setPage, uri] = useFilterSearch(
-    '',
-    '/products/search',
-    '/products'
-  );
+  const [
+    toFilterSearchDiv,
+    notFoundWord,
+    setPage,
+    uri,
+    res,
+    isPending,
+    error,
+    getData,
+  ] = useFilterSearch('', '/products/search', '/products');
 
-  const [res, isPending, error, getData] = useGET(uri);
   const navigate = useNavigate();
 
   return (

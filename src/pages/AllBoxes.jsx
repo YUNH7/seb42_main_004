@@ -9,16 +9,20 @@ import {
   Pagination,
 } from '../components/commons';
 import { BoxCards } from '../components/allboxes';
-import { useFilterSearch, useGET } from '../hooks';
+import { useFilterSearch } from '../hooks';
 
 function AllBoxes() {
   const { user, admin } = useSelector((state) => state.authReducer);
-  const [toFilterSearchDiv, notFoundWord, setPage, uri] = useFilterSearch(
-    '',
-    '/mealboxes/search/detail',
-    '/mealboxes'
-  );
-  const [res, isPending, error, getData] = useGET(uri);
+  const [
+    toFilterSearchDiv,
+    notFoundWord,
+    setPage,
+    uri,
+    res,
+    isPending,
+    error,
+    getData,
+  ] = useFilterSearch('', '/mealboxes/search/detail', '/mealboxes');
   const navigate = useNavigate();
 
   return (

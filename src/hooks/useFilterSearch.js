@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import useGET from './useGET';
 
-function useFilterSearch(setPath, searchPath, sortPath) {
+function useFilterSearch(setPath, searchPath, sortPath, path) {
   const navigate = useNavigate();
 
   const [searchWord, setSearchWord] = useState('');
@@ -55,8 +56,18 @@ function useFilterSearch(setPath, searchPath, sortPath) {
   const changePage = (page) => () =>
     !setPath ? navigate(paginationUrl(page)) : setPage(page);
   const uri = `${pathname}${search}`;
+  const [res, isPending, error, getData] = useGET(path || uri);
 
-  return [toFilterSearchDiv, notFoundWord, changePage, uri];
+  return [
+    toFilterSearchDiv,
+    notFoundWord,
+    changePage,
+    uri,
+    res,
+    isPending,
+    error,
+    getData,
+  ];
 }
 
 export default useFilterSearch;

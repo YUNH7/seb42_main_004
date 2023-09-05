@@ -11,19 +11,15 @@ import {
 import { BoxElementCardLi, CustomAside } from '../components/custom';
 import { MealBoxesWrapDiv } from './AllBoxes';
 import { initializeCustom } from '../reducers/customReducer';
-import { useFilterSearch, useGET } from '../hooks';
+import { useFilterSearch } from '../hooks';
 
 function Custom() {
   const { custom } = useSelector((state) => state.customReducer);
   const { admin } = useSelector((state) => state.authReducer);
   const [path, setPath] = useState('/products?page=1&sort=id&dir=DESC');
-  const [res, isPending, error] = useGET(path);
   const [showSelected, setShowSelected] = useState(false);
-  const [toFilterSearchDiv, notFoundWord, setPage] = useFilterSearch(
-    setPath,
-    '/products/search',
-    '/products'
-  );
+  const [toFilterSearchDiv, notFoundWord, setPage, , res, isPending, error] =
+    useFilterSearch(setPath, '/products/search', '/products', path);
   const dispatch = useDispatch();
 
   const totalQuantity = custom.products.reduce((a, c) => a + c.quantity, 0);
