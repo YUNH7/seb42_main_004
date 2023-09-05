@@ -17,7 +17,8 @@ function Products() {
     notFoundWord,
     setPage,
     uri,
-    res,
+    products,
+    pageInfo,
     isPending,
     error,
     getData,
@@ -29,7 +30,7 @@ function Products() {
     <GetTemplate
       isPending={isPending}
       error={error}
-      res={res?.data}
+      res={products}
       title="구성품 목록 보기"
     >
       <MealBoxesWrapDiv className="margininside">
@@ -37,10 +38,10 @@ function Products() {
         <FilterSearchDiv placeholder="고구마" {...toFilterSearchDiv} />
         {notFoundWord && (
           <SearchResultH3>
-            검색결과 {res?.pageInfo?.totalElements?.toLocaleString('ko-KR')}개
+            검색결과 {pageInfo?.totalElements?.toLocaleString('ko-KR')}개
           </SearchResultH3>
         )}
-        {res.data?.length === 0 && (
+        {products?.length === 0 && (
           <NoResultDiv
             search={(word) => navigate(`/products/search?page=1&name=${word}`)}
             notFoundWord={notFoundWord}
@@ -50,12 +51,12 @@ function Products() {
         <ProductCards
           admin={admin}
           uri={uri}
-          data={res.data}
+          data={products}
           getData={getData}
         />
         <Pagination
-          page={res?.pageInfo?.page}
-          totalpage={res?.pageInfo?.totalPages}
+          page={pageInfo?.page}
+          totalpage={pageInfo?.totalPages}
           setPage={setPage}
         />
       </MealBoxesWrapDiv>

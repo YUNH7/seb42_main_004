@@ -18,7 +18,8 @@ function AllBoxes() {
     notFoundWord,
     setPage,
     uri,
-    res,
+    mealBoxes,
+    pageInfo,
     isPending,
     error,
     getData,
@@ -29,7 +30,7 @@ function AllBoxes() {
     <GetTemplate
       isPending={isPending}
       error={error}
-      res={res?.data}
+      res={mealBoxes}
       title="밀박스 목록 보기"
     >
       <MealBoxesWrapDiv className="margininside">
@@ -43,10 +44,10 @@ function AllBoxes() {
         />
         {notFoundWord && (
           <SearchResultH3>
-            검색결과 {res?.pageInfo?.totalElements?.toLocaleString('ko-KR')}개
+            검색결과 {pageInfo?.totalElements?.toLocaleString('ko-KR')}개
           </SearchResultH3>
         )}
-        {res.data?.length === 0 && (
+        {mealBoxes?.length === 0 && (
           <NoResultDiv
             search={(word) =>
               navigate(`/mealboxes/search/detail?page=1&name=${word}`)
@@ -55,10 +56,10 @@ function AllBoxes() {
             replaceWord={'고단백질 아침 세트'}
           />
         )}
-        <BoxCards uri={uri} data={res.data} getData={getData} />
+        <BoxCards uri={uri} data={mealBoxes} getData={getData} />
         <Pagination
-          page={res?.pageInfo?.page}
-          totalpage={res?.pageInfo?.totalPages}
+          page={pageInfo?.page}
+          totalpage={pageInfo?.totalPages}
           setPage={setPage}
         />
       </MealBoxesWrapDiv>

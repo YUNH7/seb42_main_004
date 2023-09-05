@@ -18,8 +18,16 @@ function Custom() {
   const { admin } = useSelector((state) => state.authReducer);
   const [path, setPath] = useState('/products?page=1&sort=id&dir=DESC');
   const [showSelected, setShowSelected] = useState(false);
-  const [toFilterSearchDiv, notFoundWord, setPage, , res, isPending, error] =
-    useFilterSearch(setPath, '/products/search', '/products', path);
+  const [
+    toFilterSearchDiv,
+    notFoundWord,
+    setPage,
+    ,
+    data,
+    pageInfo,
+    isPending,
+    error,
+  ] = useFilterSearch(setPath, '/products/search', '/products', path);
   const dispatch = useDispatch();
 
   const totalQuantity = custom.products.reduce((a, c) => a + c.quantity, 0);
@@ -27,7 +35,7 @@ function Custom() {
 
   const productInCustom = (id) => productsId.indexOf(id);
   const handleShowSelected = () => setShowSelected(!showSelected);
-  const products = showSelected ? custom.products : res?.data;
+  const products = showSelected ? custom.products : data;
 
   useEffect(() => {
     if (products?.length === 0) {
@@ -39,7 +47,7 @@ function Custom() {
     <GetTemplate
       isPending={isPending}
       error={error}
-      res={res.data}
+      res={data}
       title={`${admin ? '새로운' : '나만의'} 밀박스 만들기`}
     >
       <CustomWrapDiv className="margininside">
@@ -78,8 +86,8 @@ function Custom() {
                 </BoxElementCardUl>
                 {!showSelected && (
                   <Pagination
-                    page={res?.pageInfo?.page}
-                    totalpage={res?.pageInfo?.totalPages}
+                    page={pageInfo?.page}
+                    totalpage={pageInfo?.totalPages}
                     setPage={setPage}
                   />
                 )}
