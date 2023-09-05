@@ -18,7 +18,7 @@ function Custom() {
   const { admin } = useSelector((state) => state.authReducer);
   const [path, setPath] = useState('/products?page=1&sort=id&dir=DESC');
   const [res, isPending, error] = useGET(path);
-  const [openCustom, setOpenCustom] = useState(false);
+  const [showSelected, setShowSelected] = useState(false);
   const [toFilterSearchDiv, notFoundWord, setPage] = useFilterSearch(
     false,
     setPath
@@ -28,14 +28,13 @@ function Custom() {
   const totalQuantity = custom.products.reduce((a, c) => a + c.quantity, 0);
   const productsId = custom.products.map((product) => product.productId);
 
-  const productInCustom = (id) => {
-    return productsId.indexOf(id);
-  };
-  const products = openCustom ? custom.products : res?.data;
+  const productInCustom = (id) => productsId.indexOf(id);
+  const handleShowSelected = () => setShowSelected(!showSelected);
+  const products = showSelected ? custom.products : res?.data;
 
   useEffect(() => {
     if (products?.length === 0) {
-      setOpenCustom(false);
+      setShowSelected(false);
     }
   }, [products]);
 
@@ -51,8 +50,8 @@ function Custom() {
           <h1>{admin && custom ? custom.name : '커스텀 밀박스'}</h1>
           <AsideButtonDiv>
             <TextButton
-              inButton={`선택된 목록 ${openCustom ? '닫기' : '보기'}`}
-              onClick={() => setOpenCustom(!openCustom)}
+              inButton={`선택된 목록 ${showSelected ? '닫기' : '보기'}`}
+              onClick={handleShowSelected}
               font="basic"
             />
             <TextButton
@@ -80,7 +79,7 @@ function Custom() {
                     />
                   ))}
                 </BoxElementCardUl>
-                {!openCustom && (
+                {!showSelected && (
                   <Pagination
                     page={res?.pageInfo?.page}
                     totalpage={res?.pageInfo?.totalPages}
