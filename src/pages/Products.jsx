@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -12,24 +11,12 @@ import { ProductCards } from '../components/product';
 import { useFilterSearch, useGET } from '../hooks';
 
 function Products() {
-  const { isLogin, admin } = useSelector((state) => state.authReducer);
-  const [path, setPath] = useState(null);
+  const { admin } = useSelector((state) => state.authReducer);
   const [toFilterSearchDiv, notFoundWord, setPage, uri] =
     useFilterSearch(false);
 
-  const [res, isPending, error, getData] = useGET(path);
+  const [res, isPending, error, getData] = useGET(uri);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const accessToken = localStorage.getItem('accessToken');
-    if (accessToken && !isLogin) {
-      setPath(null);
-    } else if (isLogin) {
-      setPath(`${admin ? '/admin' : ''}${uri}`);
-    } else {
-      setPath(uri);
-    }
-  }, [uri, isLogin]);
 
   return (
     <GetTemplate
