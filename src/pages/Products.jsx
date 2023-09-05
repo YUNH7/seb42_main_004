@@ -8,7 +8,7 @@ import {
 } from '../components/commons';
 import { MealBoxesWrapDiv, SearchResultH3 } from './AllBoxes';
 import { ProductCards } from '../components/product';
-import { useFilterSearch } from '../hooks';
+import { useSortSearch } from '../hooks';
 
 function Products() {
   const { admin } = useSelector((state) => state.authReducer);
@@ -22,7 +22,7 @@ function Products() {
     isPending,
     error,
     getData,
-  ] = useFilterSearch('', '/products/search', '/products');
+  ] = useSortSearch('', '/products/search', '/products');
 
   const navigate = useNavigate();
 

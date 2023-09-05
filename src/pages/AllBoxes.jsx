@@ -9,7 +9,7 @@ import {
   Pagination,
 } from '../components/commons';
 import { BoxCards } from '../components/allboxes';
-import { useFilterSearch } from '../hooks';
+import { useSortSearch } from '../hooks';
 
 function AllBoxes() {
   const { user, admin } = useSelector((state) => state.authReducer);
@@ -23,7 +23,7 @@ function AllBoxes() {
     isPending,
     error,
     getData,
-  ] = useFilterSearch('', '/mealboxes/search/detail', '/mealboxes');
+  ] = useSortSearch('', '/mealboxes/search/detail', '/mealboxes');
   const navigate = useNavigate();
 
   return (

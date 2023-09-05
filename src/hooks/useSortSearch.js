@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import useGET from './useGET';
 
-function useFilterSearch(setPath, searchPath, sortPath, path) {
+function useSortSearch(setPath, searchPath, sortPath, path) {
   const navigate = useNavigate();
 
   const [searchWord, setSearchWord] = useState('');
@@ -71,4 +71,4 @@ function useFilterSearch(setPath, searchPath, sortPath, path) {
   ];
 }
 
-export default useFilterSearch;
+export default useSortSearch;

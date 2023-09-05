@@ -11,7 +11,7 @@ import {
 import { BoxElementCardLi, CustomAside } from '../components/custom';
 import { MealBoxesWrapDiv } from './AllBoxes';
 import { initializeCustom } from '../reducers/customReducer';
-import { useFilterSearch } from '../hooks';
+import { useSortSearch } from '../hooks';
 
 function Custom() {
   const { custom } = useSelector((state) => state.customReducer);
@@ -27,7 +27,7 @@ function Custom() {
     pageInfo,
     isPending,
     error,
-  ] = useFilterSearch(setPath, '/products/search', '/products', path);
+  ] = useSortSearch(setPath, '/products/search', '/products', path);
   const dispatch = useDispatch();
 
   const totalQuantity = custom.products.reduce((a, c) => a + c.quantity, 0);
