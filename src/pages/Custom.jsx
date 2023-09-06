@@ -21,7 +21,6 @@ function Custom() {
     toFilterSearchDiv,
     searchWord,
     setPage,
-    ,
     data,
     pageInfo,
     isPending,

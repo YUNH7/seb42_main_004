@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 import MealBoxCardLi from './MealBoxCardLi';
 
-function BoxCards({ uri, data, getData }) {
-  const filteredFirstPage = uri.includes('?page=1&') && !uri.includes('search');
+function BoxCards({ sortedFirstPage, data, getData }) {
   const noData = data?.length === 0;
 
   return (
     <Cards>
-      {(filteredFirstPage || noData) && <MealBoxCardLi />}
+      {(sortedFirstPage || noData) && <MealBoxCardLi />}
       {!noData &&
         data.map((mealbox) => (
           <MealBoxCardLi

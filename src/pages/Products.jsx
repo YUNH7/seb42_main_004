@@ -15,13 +15,13 @@ function Products() {
     toFilterSearchDiv,
     searchWord,
     setPage,
-    uri,
     products,
     pageInfo,
     isPending,
     error,
     getData,
     searchProduct,
+    sortedFirstPage,
   ] = useSortSearch('/products/search', '/products');
   const searchExample = '단백질쉐이크';
 
@@ -49,7 +49,7 @@ function Products() {
         )}
         <ProductCards
           admin={admin}
-          uri={uri}
+          sortedFirstPage={sortedFirstPage}
           data={products}
           getData={getData}
         />

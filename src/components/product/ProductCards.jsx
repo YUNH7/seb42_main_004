@@ -2,17 +2,15 @@ import styled from 'styled-components';
 import ProductLi from './ProductLi';
 import { Cards } from '../allboxes';
 
-function ProductCards({ admin, uri, data, getData }) {
-  const filteredFirstPage = uri.includes('?page=1&') && !uri.includes('search');
+function ProductCards({ admin, sortedFirstPage, data, getData }) {
   const noData = data?.length === 0;
-  const hasData = data?.length !== 0;
 
   return (
     <Products>
-      {admin && (filteredFirstPage || noData) && (
+      {admin && (sortedFirstPage || noData) && (
         <ProductLi admin={admin} reload={getData} />
       )}
-      {hasData &&
+      {!noData &&
         data.map((product) => (
           <ProductLi
             key={product.productId}

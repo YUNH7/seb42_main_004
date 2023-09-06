@@ -4,9 +4,7 @@ import useGET from './useGET';
 
 function useSortSearch(searchPath, sortPath, changeInPage) {
   const navigate = useNavigate();
-
   const [searchWord, setSearchWord] = useState('');
-
   const { pathname, search } = useLocation();
   const [path, setPath] = useState('/products?page=1&sort=id&dir=DESC');
 
@@ -52,13 +50,13 @@ function useSortSearch(searchPath, sortPath, changeInPage) {
     toFilterSearchDiv,
     searchWord,
     changePage,
-    uri,
     res.data,
     res.pageInfo,
     isPending,
     error,
     getData,
     searchSubject,
+    uri.includes('?page=1&') && !uri.includes('search'),
   ];
 }
 

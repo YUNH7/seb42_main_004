@@ -16,13 +16,13 @@ function AllBoxes() {
     toFilterSearchDiv,
     searchWord,
     setPage,
-    uri,
     mealBoxes,
     pageInfo,
     isPending,
     error,
     getData,
     searchMealBox,
+    sortedFirstPage,
   ] = useSortSearch('/mealboxes/search/detail', '/mealboxes');
   const searchExample = '고단백질 아침 세트';
 
@@ -51,7 +51,11 @@ function AllBoxes() {
             replaceWord={searchExample}
           />
         )}
-        <BoxCards uri={uri} data={mealBoxes} getData={getData} />
+        <BoxCards
+          sortedFirstPage={sortedFirstPage}
+          data={mealBoxes}
+          getData={getData}
+        />
         <Pagination
           page={pageInfo?.page}
           totalpage={pageInfo?.totalPages}
