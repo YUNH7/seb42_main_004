@@ -23,7 +23,7 @@ function AllBoxes() {
     isPending,
     error,
     getData,
-  ] = useSortSearch('', '/mealboxes/search/detail', '/mealboxes');
+  ] = useSortSearch('/mealboxes/search/detail', '/mealboxes');
   const navigate = useNavigate();
 
   return (

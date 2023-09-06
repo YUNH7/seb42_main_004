@@ -2,19 +2,19 @@ import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import useGET from './useGET';
 
-function useSortSearch(setPath, searchPath, sortPath, path) {
+function useSortSearch(searchPath, sortPath, changeInPage) {
   const navigate = useNavigate();
 
   const [searchWord, setSearchWord] = useState('');
-  const [sortBy, setSortBy] = useState(['id', 'DESC']);
   const [notFoundWord, setNotFoundWord] = useState(searchWord);
+  const [sortBy, setSortBy] = useState(['id', 'DESC']);
 
-  let { pathname, search } = useLocation();
-  if (!search) search = '?page=1&sort=id&dir=DESC';
+  const { pathname, search } = useLocation();
   const [page, setPage] = useState(1);
+  const [path, setPath] = useState('/products?page=1&sort=id&dir=DESC');
 
   const searchSubject = () => {
-    if (setPath) {
+    if (changeInPage) {
       setPage(1);
       setPath(paginationUrl(1));
     } else navigate(paginationUrl(1));
@@ -34,7 +34,7 @@ function useSortSearch(setPath, searchPath, sortPath, path) {
   };
 
   useEffect(() => {
-    if (setPath) setPath(paginationUrl(page));
+    if (changeInPage) setPath(paginationUrl(page));
     else navigate(paginationUrl(1));
   }, [page, sortBy]);
 
@@ -54,9 +54,9 @@ function useSortSearch(setPath, searchPath, sortPath, path) {
   const toSearchBarDiv = { searchSubject, searchWord, setSearchWord };
   const toFilterSearchDiv = { sortSubject, toSearchBarDiv };
   const changePage = (page) => () =>
-    !setPath ? navigate(paginationUrl(page)) : setPage(page);
-  const uri = `${pathname}${search}`;
-  const [res, isPending, error, getData] = useGET(path || uri);
+    changeInPage ? setPage(page) : navigate(paginationUrl(page));
+  const uri = `${pathname}${search || '?page=1&sort=id&dir=DESC'}`;
+  const [res, isPending, error, getData] = useGET(changeInPage ? path : uri);
 
   return [
     toFilterSearchDiv,
@@ -68,6 +68,7 @@ function useSortSearch(setPath, searchPath, sortPath, path) {
     isPending,
     error,
     getData,
+    setPath,
   ];
 }
 

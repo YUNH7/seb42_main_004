@@ -22,7 +22,7 @@ function Products() {
     isPending,
     error,
     getData,
-  ] = useSortSearch('', '/products/search', '/products');
+  ] = useSortSearch('/products/search', '/products');
 
   const navigate = useNavigate();
 

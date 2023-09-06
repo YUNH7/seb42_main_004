@@ -16,7 +16,6 @@ import { useSortSearch } from '../hooks';
 function Custom() {
   const { custom } = useSelector((state) => state.customReducer);
   const { admin } = useSelector((state) => state.authReducer);
-  const [path, setPath] = useState('/products?page=1&sort=id&dir=DESC');
   const [showSelected, setShowSelected] = useState(false);
   const [
     toFilterSearchDiv,
@@ -27,7 +26,9 @@ function Custom() {
     pageInfo,
     isPending,
     error,
-  ] = useSortSearch(setPath, '/products/search', '/products', path);
+    ,
+    searchKeyWord,
+  ] = useSortSearch('/products/search', '/products', true);
   const dispatch = useDispatch();
 
   const totalQuantity = custom.products.reduce((a, c) => a + c.quantity, 0);
@@ -95,7 +96,7 @@ function Custom() {
             ) : (
               <NoResultDiv
                 search={(word) =>
-                  setPath(`/products/search?page=1&name=${word}`)
+                  searchKeyWord(`/products/search?page=1&name=${word}`)
                 }
                 notFoundWord={notFoundWord}
                 replaceWord={'단백질쉐이크'}
