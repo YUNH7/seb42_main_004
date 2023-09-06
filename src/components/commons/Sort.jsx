@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-function FilterSelect({ sortSubject }) {
+function Sort({ sortSubject }) {
   return (
     <Select name="sort" onChange={(e) => sortSubject(e.target.value)}>
       <option value="id/DESC">최신순</option>
@@ -13,7 +13,7 @@ function FilterSelect({ sortSubject }) {
   );
 }
 
-export default FilterSelect;
+export default Sort;
 
 const Select = styled.select`
   margin-bottom: 0.5rem;

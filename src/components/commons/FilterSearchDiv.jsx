@@ -1,10 +1,10 @@
-import { FilterSelect, SearchBarDiv } from '.';
+import { Sort, SearchBarDiv } from '.';
 import { Flex } from '../styled';
 
 function FilterSearchDiv({ sortSubject, placeholder, toSearchBarDiv }) {
   return (
     <Flex justifyContent="space-between" alignItems="center">
-      <FilterSelect sortSubject={sortSubject} />
+      <Sort sortSubject={sortSubject} />
       <SearchBarDiv placeholder={placeholder} {...toSearchBarDiv} />
     </Flex>
   );
