@@ -39,7 +39,7 @@ function AllBoxes() {
           {user?.name && `${user.name}님 `}오늘도 건강한 하루되세요(｡•̀ᴗ-)✧
         </h1>
         <FilterSearchDiv
-          placeholder="healthy day 밀박스"
+          placeholder="고단백질 아침 세트"
           {...toFilterSearchDiv}
         />
         {notFoundWord && (

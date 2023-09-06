@@ -69,7 +69,10 @@ function Custom() {
         </CustomTitleDiv>
         <CustomSelectDiv>
           <ElementsContainerDiv>
-            <FilterSearchDiv placeholder="고구마" {...toFilterSearchDiv} />
+            <FilterSearchDiv
+              placeholder="단백질쉐이크"
+              {...toFilterSearchDiv}
+            />
             {products?.length !== 0 ? (
               <>
                 <BoxElementCardUl>
