@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
 import {
-  FilterSearchDiv,
   GetTemplate,
   NoResultDiv,
   Pagination,
+  SortSearch,
 } from '../components/commons';
 import { MealBoxesWrapDiv, SearchResultH3 } from './AllBoxes';
 import { ProductCards } from '../components/product';
@@ -34,7 +34,7 @@ function Products() {
     >
       <MealBoxesWrapDiv className="margininside">
         <h1>구성품 설명</h1>
-        <FilterSearchDiv placeholder={searchExample} {...toFilterSearchDiv} />
+        <SortSearch placeholder={searchExample} {...toFilterSearchDiv} />
         {searchWord && (
           <SearchResultH3>
             검색결과 {pageInfo?.totalElements?.toLocaleString('ko-KR')}개

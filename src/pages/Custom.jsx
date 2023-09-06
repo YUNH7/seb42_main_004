@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import {
-  FilterSearchDiv,
   GetTemplate,
-  TextButton,
   NoResultDiv,
   Pagination,
+  SortSearch,
+  TextButton,
 } from '../components/commons';
 import { BoxElementCardLi, CustomAside } from '../components/custom';
 import { MealBoxesWrapDiv } from './AllBoxes';
@@ -70,10 +70,7 @@ function Custom() {
         </CustomTitleDiv>
         <CustomSelectDiv>
           <ElementsContainerDiv>
-            <FilterSearchDiv
-              placeholder={searchExample}
-              {...toFilterSearchDiv}
-            />
+            <SortSearch placeholder={searchExample} {...toFilterSearchDiv} />
             {products?.length !== 0 ? (
               <>
                 <BoxElementCardUl>

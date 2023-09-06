@@ -1,7 +1,6 @@
 export { default as AppProvider } from './AppProvider';
 export { default as BannerLink } from './BannerLink';
 export { default as CartAside } from './CartAside';
-export { default as FilterSearchDiv } from './FilterSearchDiv';
 export { default as Footer } from './Footer';
 export { default as GetTemplate } from './GetTemplate';
 export { default as Header } from './Header';
@@ -16,6 +15,7 @@ export { default as NoResultDiv } from './NoResultDiv';
 export { default as Pagination } from './Pagination';
 export { default as SearchBar } from './SearchBar';
 export { default as Sort } from './Sort';
+export { default as SortSearch } from './SortSearch';
 export { default as TabBar } from './TabBar';
 export { default as TabsInNav } from './TabsInNav';
 export { default as TextButton } from './TextButton';

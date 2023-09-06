@@ -1,7 +1,7 @@
 import { Sort, SearchBar } from '.';
 import { Flex } from '../styled';
 
-function FilterSearchDiv({ sortSubject, placeholder, toSearchBarDiv }) {
+function SortSearch({ sortSubject, placeholder, toSearchBarDiv }) {
   return (
     <Flex justifyContent="space-between" alignItems="center">
       <Sort sortSubject={sortSubject} />
@@ -10,4 +10,4 @@ function FilterSearchDiv({ sortSubject, placeholder, toSearchBarDiv }) {
   );
 }
 
-export default FilterSearchDiv;
+export default SortSearch;

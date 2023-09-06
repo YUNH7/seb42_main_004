@@ -2,10 +2,10 @@ import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import {
   BannerLink,
-  FilterSearchDiv,
   GetTemplate,
   NoResultDiv,
   Pagination,
+  SortSearch,
 } from '../components/commons';
 import { BoxCards } from '../components/allboxes';
 import { useSortSearch } from '../hooks';
@@ -38,7 +38,7 @@ function AllBoxes() {
         <h1>
           {user?.name && `${user.name}님 `}오늘도 건강한 하루되세요(｡•̀ᴗ-)✧
         </h1>
-        <FilterSearchDiv placeholder={searchExample} {...toFilterSearchDiv} />
+        <SortSearch placeholder={searchExample} {...toFilterSearchDiv} />
         {searchWord && (
           <SearchResultH3>
             검색결과 {pageInfo?.totalElements?.toLocaleString('ko-KR')}개
