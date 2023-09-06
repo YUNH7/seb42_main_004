@@ -14,7 +14,7 @@ export { default as Navbar } from './Navbar';
 export { default as NoContent } from './NoContent';
 export { default as NoResultDiv } from './NoResultDiv';
 export { default as Pagination } from './Pagination';
-export { default as SearchBarDiv } from './SearchBarDiv';
+export { default as SearchBar } from './SearchBar';
 export { default as Sort } from './Sort';
 export { default as TabBar } from './TabBar';
 export { default as TabsInNav } from './TabsInNav';

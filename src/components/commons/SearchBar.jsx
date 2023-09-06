@@ -2,12 +2,7 @@ import styled from 'styled-components';
 import { BiSearchAlt } from '@react-icons/all-files/bi/BiSearchAlt.esm';
 import { OrderHistoryPageButton } from '../orderHistory';
 
-function SearchBarDiv({
-  placeholder,
-  searchSubject,
-  searchWord,
-  setSearchWord,
-}) {
+function SearchBar({ placeholder, searchSubject, searchWord, setSearchWord }) {
   return (
     <SearchBarContainerDiv>
       <input
@@ -24,7 +19,7 @@ function SearchBarDiv({
   );
 }
 
-export default SearchBarDiv;
+export default SearchBar;
 
 const SearchBarContainerDiv = styled.div`
   display: flex;
