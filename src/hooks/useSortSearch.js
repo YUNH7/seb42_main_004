@@ -41,23 +41,20 @@ function useSortSearch(searchPath, sortPath, changeInPage) {
     }
   }, [search]);
 
-  const toSearchBarDiv = { searchSubject, searchWord };
-  const toFilterSearchDiv = { sortSubject, toSearchBarDiv };
+  const sortSearch = { sortSubject, searchSubject, searchWord };
   const uri = `${pathname}${search || '?page=1&sort=id&dir=DESC'}`;
   const [res, isPending, error, getData] = useGET(changeInPage ? path : uri);
 
-  return [
-    toFilterSearchDiv,
-    searchWord,
+  return {
+    sortSearch,
     changePage,
-    res.data,
-    res.pageInfo,
+    data: res.data,
+    pageInfo: res.pageInfo,
     isPending,
     error,
     getData,
-    searchSubject,
-    uri.includes('?page=1&') && !uri.includes('search'),
-  ];
+    sortedFirstPage: uri.includes('?page=1&') && !uri.includes('search'),
+  };
 }
 
 export default useSortSearch;

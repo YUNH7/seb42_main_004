@@ -11,18 +11,17 @@ import { useSortSearch } from '../hooks';
 
 function Products() {
   const { admin } = useSelector((state) => state.authReducer);
-  const [
-    toFilterSearchDiv,
-    searchWord,
-    setPage,
-    products,
+  const {
+    sortSearch,
+    changePage,
+    data: products,
     pageInfo,
     isPending,
     error,
     getData,
-    searchProduct,
     sortedFirstPage,
-  ] = useSortSearch('/products/search', '/products');
+  } = useSortSearch('/products/search', '/products');
+  const { searchWord, searchSubject: searchProduct } = sortSearch;
   const searchExample = '단백질쉐이크';
 
   return (
@@ -34,7 +33,7 @@ function Products() {
     >
       <MealBoxesWrapDiv className="margininside">
         <h1>구성품 설명</h1>
-        <SortSearch placeholder={searchExample} {...toFilterSearchDiv} />
+        <SortSearch placeholder={searchExample} {...sortSearch} />
         {searchWord && (
           <SearchResultH3>
             검색결과 {pageInfo?.totalElements?.toLocaleString('ko-KR')}개
@@ -56,7 +55,7 @@ function Products() {
         <Pagination
           page={pageInfo?.page}
           totalpage={pageInfo?.totalPages}
-          setPage={setPage}
+          setPage={changePage}
         />
       </MealBoxesWrapDiv>
     </GetTemplate>

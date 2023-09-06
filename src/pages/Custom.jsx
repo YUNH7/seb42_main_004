@@ -17,17 +17,9 @@ function Custom() {
   const { custom } = useSelector((state) => state.customReducer);
   const { admin } = useSelector((state) => state.authReducer);
   const [showSelected, setShowSelected] = useState(false);
-  const [
-    toFilterSearchDiv,
-    searchWord,
-    setPage,
-    data,
-    pageInfo,
-    isPending,
-    error,
-    ,
-    searchProduct,
-  ] = useSortSearch('/products/search', '/products', true);
+  const { sortSearch, changePage, data, pageInfo, isPending, error } =
+    useSortSearch('/products/search', '/products', true);
+  const { searchWord, searchSubject: searchProduct } = sortSearch;
   const dispatch = useDispatch();
 
   const totalQuantity = custom.products.reduce((a, c) => a + c.quantity, 0);
@@ -69,7 +61,7 @@ function Custom() {
         </CustomTitleDiv>
         <CustomSelectDiv>
           <ElementsContainerDiv>
-            <SortSearch placeholder={searchExample} {...toFilterSearchDiv} />
+            <SortSearch placeholder={searchExample} {...sortSearch} />
             {products?.length !== 0 ? (
               <>
                 <BoxElementCardUl>
@@ -89,7 +81,7 @@ function Custom() {
                   <Pagination
                     page={pageInfo?.page}
                     totalpage={pageInfo?.totalPages}
-                    setPage={setPage}
+                    setPage={changePage}
                   />
                 )}
               </>
