@@ -1,10 +1,15 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { BiSearchAlt } from '@react-icons/all-files/bi/BiSearchAlt.esm';
 import { OrderHistoryPageButton as SearchButton } from '../orderHistory';
 
 function SearchBar({ placeholder, searchSubject, searchWord }) {
   const input = useRef();
+  useEffect(() => {
+    if (input) {
+      input.current.value = searchWord;
+    }
+  }, [input, searchWord]);
 
   return (
     <Wrapper>
@@ -13,7 +18,6 @@ function SearchBar({ placeholder, searchSubject, searchWord }) {
         className="inputstyle"
         maxLength={20}
         placeholder={placeholder && placeholder}
-        defaultValue={searchWord}
         onKeyUp={(e) => e.key === 'Enter' && searchSubject(e.target.value)}
       />
       <SearchButton

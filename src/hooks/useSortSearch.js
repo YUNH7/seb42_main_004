@@ -9,19 +9,21 @@ function useSortSearch(searchPath, sortPath, changeInPage) {
   const [path, setPath] = useState('/products?page=1&sort=id&dir=DESC');
 
   const changeList = (uri) => (changeInPage ? setPath(uri) : navigate(uri));
-  const searchSubject = (word) => {
-    setSearchWord(word);
-    const uri = word
-      ? `${searchPath}?page=1&name=${word}`
-      : `${sortPath}?page=1&sort=id&dir=DESC`;
-    changeList(uri);
-  };
+
   const sortSubject = (select) => {
     setSearchWord('');
     const sortBy = select.split('/');
-    const uri = `${sortPath}?page=1&sort=${sortBy[0]}&dir=${sortBy[1]}`;
-    changeList(uri);
+    changeList(`${sortPath}?page=1&sort=${sortBy[0]}&dir=${sortBy[1]}`);
   };
+
+  const searchSubject = (word) => {
+    if (!word) sortSubject('id/DESC');
+    else {
+      setSearchWord(word);
+      changeList(`${searchPath}?page=1&name=${word}`);
+    }
+  };
+
   const changePage = (num) => () => {
     const uri = changeInPage
       ? path

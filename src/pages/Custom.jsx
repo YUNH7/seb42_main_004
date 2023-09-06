@@ -88,7 +88,7 @@ function Custom() {
             ) : (
               <NoResultDiv
                 search={() => searchProduct(searchExample)}
-                notFoundWord={searchWord}
+                searchWord={searchWord}
                 replaceWord={searchExample}
               />
             )}
