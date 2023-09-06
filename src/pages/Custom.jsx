@@ -37,31 +37,31 @@ function Custom() {
   }, [products]);
 
   return (
-    <GetTemplate
-      isPending={isPending}
-      error={error}
-      res={data}
-      title={`${admin ? '새로운' : '나만의'} 밀박스 만들기`}
-    >
-      <CustomWrapDiv className="margininside">
-        <CustomTitleDiv>
-          <h1>{admin && custom ? custom.name : '커스텀 밀박스'}</h1>
-          <AsideButtonDiv>
-            <TextButton
-              inButton={`선택된 목록 ${showSelected ? '닫기' : '보기'}`}
-              onClick={handleShowSelected}
-              font="basic"
-            />
-            <TextButton
-              inButton="다시 담기"
-              onClick={() => dispatch(initializeCustom())}
-              font="basic"
-            />
-          </AsideButtonDiv>
-        </CustomTitleDiv>
-        <CustomSelectDiv>
-          <ElementsContainerDiv>
-            <SortSearch placeholder={searchExample} {...sortSearch} />
+    <CustomWrapDiv className="margininside">
+      <CustomTitleDiv>
+        <h1>{admin && custom ? custom.name : '커스텀 밀박스'}</h1>
+        <AsideButtonDiv>
+          <TextButton
+            inButton={`선택된 목록 ${showSelected ? '닫기' : '보기'}`}
+            onClick={handleShowSelected}
+            font="basic"
+          />
+          <TextButton
+            inButton="다시 담기"
+            onClick={() => dispatch(initializeCustom())}
+            font="basic"
+          />
+        </AsideButtonDiv>
+      </CustomTitleDiv>
+      <CustomSelectDiv>
+        <ElementsContainerDiv>
+          <SortSearch placeholder={searchExample} {...sortSearch} />
+          <GetTemplate
+            isPending={isPending}
+            error={error}
+            res={data}
+            title={`${admin ? '새로운' : '나만의'} 밀박스 만들기`}
+          >
             {products?.length !== 0 ? (
               <>
                 <BoxElementCardUl>
@@ -92,11 +92,11 @@ function Custom() {
                 replaceWord={searchExample}
               />
             )}
-          </ElementsContainerDiv>
-          <CustomAside custom={custom} />
-        </CustomSelectDiv>
-      </CustomWrapDiv>
-    </GetTemplate>
+          </GetTemplate>
+        </ElementsContainerDiv>
+        <CustomAside custom={custom} />
+      </CustomSelectDiv>
+    </CustomWrapDiv>
   );
 }
 

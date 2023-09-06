@@ -26,18 +26,16 @@ function AllBoxes() {
   const searchExample = '고단백질 아침 세트';
 
   return (
-    <GetTemplate
-      isPending={isPending}
-      error={error}
-      res={mealBoxes}
-      title="밀박스 목록 보기"
-    >
-      <MealBoxesWrapDiv className="margininside">
-        {!admin && <BannerLink />}
-        <h1>
-          {user?.name && `${user.name}님 `}오늘도 건강한 하루되세요(｡•̀ᴗ-)✧
-        </h1>
-        <SortSearch placeholder={searchExample} {...sortSearch} />
+    <MealBoxesWrapDiv className="margininside">
+      {!admin && <BannerLink />}
+      <h1>{user?.name && `${user.name}님 `}오늘도 건강한 하루되세요(｡•̀ᴗ-)✧</h1>
+      <SortSearch placeholder={searchExample} {...sortSearch} />
+      <GetTemplate
+        isPending={isPending}
+        error={error}
+        res={mealBoxes}
+        title="밀박스 목록 보기"
+      >
         {searchWord && (
           <SearchResultH3>
             검색결과 {pageInfo?.totalElements?.toLocaleString('ko-KR')}개
@@ -60,8 +58,8 @@ function AllBoxes() {
           totalpage={pageInfo?.totalPages}
           setPage={changePage}
         />
-      </MealBoxesWrapDiv>
-    </GetTemplate>
+      </GetTemplate>
+    </MealBoxesWrapDiv>
   );
 }
 

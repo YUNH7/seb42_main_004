@@ -25,15 +25,15 @@ function Products() {
   const searchExample = '단백질쉐이크';
 
   return (
-    <GetTemplate
-      isPending={isPending}
-      error={error}
-      res={products}
-      title="구성품 목록 보기"
-    >
-      <MealBoxesWrapDiv className="margininside">
-        <h1>구성품 설명</h1>
-        <SortSearch placeholder={searchExample} {...sortSearch} />
+    <MealBoxesWrapDiv className="margininside">
+      <h1>구성품 설명</h1>
+      <SortSearch placeholder={searchExample} {...sortSearch} />
+      <GetTemplate
+        isPending={isPending}
+        error={error}
+        res={products}
+        title="구성품 목록 보기"
+      >
         {searchWord && (
           <SearchResultH3>
             검색결과 {pageInfo?.totalElements?.toLocaleString('ko-KR')}개
@@ -57,8 +57,8 @@ function Products() {
           totalpage={pageInfo?.totalPages}
           setPage={changePage}
         />
-      </MealBoxesWrapDiv>
-    </GetTemplate>
+      </GetTemplate>
+    </MealBoxesWrapDiv>
   );
 }
 
