@@ -4,12 +4,11 @@ import MealBoxCardLi from './MealBoxCardLi';
 function BoxCards({ uri, data, getData }) {
   const filteredFirstPage = uri.includes('?page=1&') && !uri.includes('search');
   const noData = data?.length === 0;
-  const hasData = data?.length !== 0;
 
   return (
     <Cards>
       {(filteredFirstPage || noData) && <MealBoxCardLi />}
-      {hasData &&
+      {!noData &&
         data.map((mealbox) => (
           <MealBoxCardLi
             key={mealbox.mealboxId}
