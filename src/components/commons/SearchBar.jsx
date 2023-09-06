@@ -4,8 +4,8 @@ import { OrderHistoryPageButton } from '../orderHistory';
 
 function SearchBar({ placeholder, searchSubject, searchWord, setSearchWord }) {
   return (
-    <SearchBarContainerDiv>
-      <input
+    <Wrapper>
+      <Input
         className="inputstyle"
         maxLength={20}
         placeholder={placeholder && placeholder}
@@ -14,38 +14,19 @@ function SearchBar({ placeholder, searchSubject, searchWord, setSearchWord }) {
         onKeyUp={(e) => e.key === 'Enter' && searchSubject()}
       />
       <OrderHistoryPageButton handler={searchSubject} text="검색" />
-      <BiSearchAlt />
-    </SearchBarContainerDiv>
+      <GlassesIcon />
+    </Wrapper>
   );
 }
 
 export default SearchBar;
 
-const SearchBarContainerDiv = styled.div`
+const Wrapper = styled.div`
   display: flex;
   position: relative;
   margin-bottom: 0.5rem;
   height: 2rem;
   align-self: flex-end;
-
-  > input {
-    width: 150px;
-    padding: 0.4rem;
-    padding-left: 2rem;
-
-    :focus {
-      border: 2px solid var(--signature);
-    }
-  }
-
-  > svg {
-    position: absolute;
-    margin: 0.25rem;
-    width: 1.5rem;
-    height: 1.5rem;
-    fill: var(--signature);
-    top: 0;
-  }
 
   > button {
     height: auto;
@@ -62,16 +43,33 @@ const SearchBarContainerDiv = styled.div`
     > button {
       display: none;
     }
+  }
+`;
+const Input = styled.input`
+  width: 150px;
+  padding: 0.4rem;
+  padding-left: 2rem;
 
-    > svg {
-      width: 2rem;
-      height: 2rem;
-      margin: 0.5rem;
-    }
+  :focus {
+    border: 2px solid var(--signature);
+  }
 
-    > input {
-      padding-left: 3rem;
-      width: 100%;
-    }
+  @media screen and (max-width: 768px) {
+    padding-left: 3rem;
+    width: 100%;
+  }
+`;
+const GlassesIcon = styled(BiSearchAlt)`
+  position: absolute;
+  margin: 0.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: var(--signature);
+  top: 0;
+
+  @media screen and (max-width: 768px) {
+    width: 2rem;
+    height: 2rem;
+    margin: 0.5rem;
   }
 `;
