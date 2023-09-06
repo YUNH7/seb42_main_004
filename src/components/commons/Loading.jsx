@@ -3,21 +3,19 @@ import { loading } from '../../assets';
 
 function Loading() {
   return (
-    <ContainerDiv className="margininside">
-      <LoadingDiv>
-        <img src={loading} alt="loading" />
-      </LoadingDiv>
-    </ContainerDiv>
+    <Wrapper>
+      <LoadingImg src={loading} alt="loading" />
+    </Wrapper>
   );
 }
 
 export default Loading;
 
-const ContainerDiv = styled.div`
-  justify-content: center;
-`;
-const LoadingDiv = styled.div`
+const Wrapper = styled.div`
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  align-items: center;
+`;
+const LoadingImg = styled.img`
+  width: 35%;
 `;
