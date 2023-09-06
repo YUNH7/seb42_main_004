@@ -3,10 +3,12 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import useGET from './useGET';
 
 function useSortSearch(searchPath, sortPath, changeInPage) {
-  const navigate = useNavigate();
-  const [searchWord, setSearchWord] = useState('');
   const { pathname, search } = useLocation();
+  const uri = `${pathname}${search || '?page=1&sort=id&dir=DESC'}`;
   const [path, setPath] = useState('/products?page=1&sort=id&dir=DESC');
+  const [res, isPending, error, getData] = useGET(changeInPage ? path : uri);
+  const [searchWord, setSearchWord] = useState('');
+  const navigate = useNavigate();
 
   const changeList = (uri) => (changeInPage ? setPath(uri) : navigate(uri));
 
@@ -25,10 +27,10 @@ function useSortSearch(searchPath, sortPath, changeInPage) {
   };
 
   const changePage = (num) => () => {
-    const uri = changeInPage
-      ? path
-      : `${pathname}${search || '?page=1&sort=id&dir=DESC'}`;
-    const newUri = uri.replace(/\?page=[0-9]+/, `?page=${num}`);
+    const newUri = (changeInPage ? path : uri).replace(
+      /\?page=[0-9]+/,
+      `?page=${num}`
+    );
     changeList(newUri);
   };
 
@@ -44,8 +46,6 @@ function useSortSearch(searchPath, sortPath, changeInPage) {
   }, [search]);
 
   const sortSearch = { sortSubject, searchSubject, searchWord };
-  const uri = `${pathname}${search || '?page=1&sort=id&dir=DESC'}`;
-  const [res, isPending, error, getData] = useGET(changeInPage ? path : uri);
 
   return {
     sortSearch,
