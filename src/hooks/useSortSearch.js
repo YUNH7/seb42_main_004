@@ -6,61 +6,51 @@ function useSortSearch(searchPath, sortPath, changeInPage) {
   const navigate = useNavigate();
 
   const [searchWord, setSearchWord] = useState('');
-  const [notFoundWord, setNotFoundWord] = useState(searchWord);
-  const [sortBy, setSortBy] = useState(['id', 'DESC']);
 
   const { pathname, search } = useLocation();
-  const [page, setPage] = useState(1);
   const [path, setPath] = useState('/products?page=1&sort=id&dir=DESC');
 
-  const searchSubject = () => {
-    if (changeInPage) {
-      setPage(1);
-      setPath(paginationUrl(1));
-    } else navigate(paginationUrl(1));
+  const changeList = (uri) => (changeInPage ? setPath(uri) : navigate(uri));
+  const searchSubject = (word) => {
+    setSearchWord(word);
+    const uri = word
+      ? `${searchPath}?page=1&name=${word}`
+      : `${sortPath}?page=1&sort=id&dir=DESC`;
+    changeList(uri);
   };
-
-  const paginationUrl = (page) => {
-    setNotFoundWord(searchWord);
-    return searchWord
-      ? `${searchPath}?page=${page}&name=${searchWord}`
-      : `${sortPath}?page=${page}&sort=${sortBy[0]}&dir=${sortBy[1]}`;
-  };
-
   const sortSubject = (select) => {
     setSearchWord('');
     const sortBy = select.split('/');
-    setSortBy(sortBy);
+    const uri = `${sortPath}?page=1&sort=${sortBy[0]}&dir=${sortBy[1]}`;
+    changeList(uri);
   };
-
-  useEffect(() => {
-    if (changeInPage) setPath(paginationUrl(page));
-    else navigate(paginationUrl(1));
-  }, [page, sortBy]);
+  const changePage = (num) => () => {
+    const uri = changeInPage
+      ? path
+      : `${pathname}${search || '?page=1&sort=id&dir=DESC'}`;
+    const newUri = uri.replace(/\?page=[0-9]+/, `?page=${num}`);
+    changeList(newUri);
+  };
 
   useEffect(() => {
     if (pathname.includes('search')) {
       const word = decodeURI(search.split('&name=')[1]);
       if (word !== searchWord) {
         setSearchWord(word);
-        setNotFoundWord(word);
       }
     } else {
       setSearchWord('');
-      setNotFoundWord('');
     }
   }, [search]);
 
-  const toSearchBarDiv = { searchSubject, searchWord, setSearchWord };
+  const toSearchBarDiv = { searchSubject, searchWord };
   const toFilterSearchDiv = { sortSubject, toSearchBarDiv };
-  const changePage = (page) => () =>
-    changeInPage ? setPage(page) : navigate(paginationUrl(page));
   const uri = `${pathname}${search || '?page=1&sort=id&dir=DESC'}`;
   const [res, isPending, error, getData] = useGET(changeInPage ? path : uri);
 
   return [
     toFilterSearchDiv,
-    notFoundWord,
+    searchWord,
     changePage,
     uri,
     res.data,
@@ -68,7 +58,7 @@ function useSortSearch(searchPath, sortPath, changeInPage) {
     isPending,
     error,
     getData,
-    setPath,
+    searchSubject,
   ];
 }
 

@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import {
@@ -15,7 +14,7 @@ function AllBoxes() {
   const { user, admin } = useSelector((state) => state.authReducer);
   const [
     toFilterSearchDiv,
-    notFoundWord,
+    searchWord,
     setPage,
     uri,
     mealBoxes,
@@ -23,8 +22,9 @@ function AllBoxes() {
     isPending,
     error,
     getData,
+    searchMealBox,
   ] = useSortSearch('/mealboxes/search/detail', '/mealboxes');
-  const navigate = useNavigate();
+  const searchExample = '고단백질 아침 세트';
 
   return (
     <GetTemplate
@@ -38,22 +38,17 @@ function AllBoxes() {
         <h1>
           {user?.name && `${user.name}님 `}오늘도 건강한 하루되세요(｡•̀ᴗ-)✧
         </h1>
-        <FilterSearchDiv
-          placeholder="고단백질 아침 세트"
-          {...toFilterSearchDiv}
-        />
-        {notFoundWord && (
+        <FilterSearchDiv placeholder={searchExample} {...toFilterSearchDiv} />
+        {searchWord && (
           <SearchResultH3>
             검색결과 {pageInfo?.totalElements?.toLocaleString('ko-KR')}개
           </SearchResultH3>
         )}
         {mealBoxes?.length === 0 && (
           <NoResultDiv
-            search={(word) =>
-              navigate(`/mealboxes/search/detail?page=1&name=${word}`)
-            }
-            notFoundWord={notFoundWord}
-            replaceWord={'고단백질 아침 세트'}
+            search={() => searchMealBox(searchExample)}
+            searchWord={searchWord}
+            replaceWord={searchExample}
           />
         )}
         <BoxCards uri={uri} data={mealBoxes} getData={getData} />

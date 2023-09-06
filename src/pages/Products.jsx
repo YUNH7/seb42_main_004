@@ -1,5 +1,4 @@
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import {
   FilterSearchDiv,
   GetTemplate,
@@ -14,7 +13,7 @@ function Products() {
   const { admin } = useSelector((state) => state.authReducer);
   const [
     toFilterSearchDiv,
-    notFoundWord,
+    searchWord,
     setPage,
     uri,
     products,
@@ -22,9 +21,9 @@ function Products() {
     isPending,
     error,
     getData,
+    searchProduct,
   ] = useSortSearch('/products/search', '/products');
-
-  const navigate = useNavigate();
+  const searchExample = '단백질쉐이크';
 
   return (
     <GetTemplate
@@ -35,17 +34,17 @@ function Products() {
     >
       <MealBoxesWrapDiv className="margininside">
         <h1>구성품 설명</h1>
-        <FilterSearchDiv placeholder="단백질쉐이크" {...toFilterSearchDiv} />
-        {notFoundWord && (
+        <FilterSearchDiv placeholder={searchExample} {...toFilterSearchDiv} />
+        {searchWord && (
           <SearchResultH3>
             검색결과 {pageInfo?.totalElements?.toLocaleString('ko-KR')}개
           </SearchResultH3>
         )}
         {products?.length === 0 && (
           <NoResultDiv
-            search={(word) => navigate(`/products/search?page=1&name=${word}`)}
-            notFoundWord={notFoundWord}
-            replaceWord={'단백질쉐이크'}
+            search={() => searchProduct(searchExample)}
+            searchWord={searchWord}
+            replaceWord={searchExample}
           />
         )}
         <ProductCards

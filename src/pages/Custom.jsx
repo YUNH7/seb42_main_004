@@ -19,7 +19,7 @@ function Custom() {
   const [showSelected, setShowSelected] = useState(false);
   const [
     toFilterSearchDiv,
-    notFoundWord,
+    searchWord,
     setPage,
     ,
     data,
@@ -27,7 +27,7 @@ function Custom() {
     isPending,
     error,
     ,
-    searchKeyWord,
+    searchProduct,
   ] = useSortSearch('/products/search', '/products', true);
   const dispatch = useDispatch();
 
@@ -37,6 +37,7 @@ function Custom() {
   const productInCustom = (id) => productsId.indexOf(id);
   const handleShowSelected = () => setShowSelected(!showSelected);
   const products = showSelected ? custom.products : data;
+  const searchExample = '단백질쉐이크';
 
   useEffect(() => {
     if (products?.length === 0) {
@@ -70,7 +71,7 @@ function Custom() {
         <CustomSelectDiv>
           <ElementsContainerDiv>
             <FilterSearchDiv
-              placeholder="단백질쉐이크"
+              placeholder={searchExample}
               {...toFilterSearchDiv}
             />
             {products?.length !== 0 ? (
@@ -98,11 +99,9 @@ function Custom() {
               </>
             ) : (
               <NoResultDiv
-                search={(word) =>
-                  searchKeyWord(`/products/search?page=1&name=${word}`)
-                }
-                notFoundWord={notFoundWord}
-                replaceWord={'단백질쉐이크'}
+                search={() => searchProduct(searchExample)}
+                notFoundWord={searchWord}
+                replaceWord={searchExample}
               />
             )}
           </ElementsContainerDiv>
