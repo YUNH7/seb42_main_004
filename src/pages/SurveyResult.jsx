@@ -24,7 +24,7 @@ function SurveyResult() {
   };
 
   useEffect(() => {
-    if (!surveyRcmd || !surveyRcmd?.breakfast) navigate('/error');
+    if (!surveyRcmd?.breakfast) navigate('/error');
   }, []);
 
   return (
