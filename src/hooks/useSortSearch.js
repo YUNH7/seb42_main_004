@@ -46,6 +46,7 @@ function useSortSearch(searchPath, sortPath, changeInPage) {
   }, [search]);
 
   const sortSearch = { sortSubject, searchSubject, searchWord };
+  const sortedFirstPage = uri.includes('?page=1&') && !uri.includes('search');
 
   return {
     sortSearch,
@@ -55,7 +56,7 @@ function useSortSearch(searchPath, sortPath, changeInPage) {
     isPending,
     error,
     getData,
-    sortedFirstPage: uri.includes('?page=1&') && !uri.includes('search'),
+    sortedFirstPage,
   };
 }
 
